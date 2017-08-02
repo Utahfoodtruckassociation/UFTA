@@ -3,12 +3,26 @@
   <head>
     <title>Ufta</title>
     <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+		<%= render 'shared/application_nav' %>
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="cover-container">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+    <div class="mastfoot">
+      <div class="inner">
+        <p>©2017 Utah Food Truck Association All rights reserved</p>
+      </div>
+		</div>
   </body>
 </html>
