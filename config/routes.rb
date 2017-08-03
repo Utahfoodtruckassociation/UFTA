@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+  resources :trucks
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get "/trucks", to:'pages#trucks'
 
