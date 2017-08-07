@@ -1,5 +1,6 @@
 class TrucksController < ApplicationController
   before_action :set_truck, only: [:show, :edit, :update, :destroy]
+  layout "truck"
 
   # GET /trucks
   # GET /trucks.json

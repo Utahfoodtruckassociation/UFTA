@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   resources :trucks
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  get "/trucks", to:'pages#trucks'
-
   get "/about", to:'pages#about'
 
   get "/contact", to:'pages#contact'

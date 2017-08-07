@@ -11,18 +11,24 @@
   </head>
 
   <body>
-		<%= render 'shared/application_nav' %>
-  <div class="site-wrapper">
-    <div class="site-wrapper-inner">
-      <div class="cover-container">
-        <%= yield %>
+
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <!-- <div class="cover-container main-container"> -->
+
+          <%= render 'shared/application_nav' %>
+
+          <%= yield %>
+
+        <!-- </div> -->
       </div>
     </div>
-  </div>
+
     <div class="mastfoot">
       <div class="inner">
         <p>©2017 Utah Food Truck Association All rights reserved</p>
       </div>
 		</div>
+
   </body>
 </html>

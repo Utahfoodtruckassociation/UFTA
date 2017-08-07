@@ -10,22 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805183434) do
+ActiveRecord::Schema.define(version: 20170803022245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "fullcalendar_engine_events", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "starttime"
-    t.datetime "endtime"
-    t.boolean  "all_day",         default: false
-    t.text     "description"
-    t.integer  "event_series_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["event_series_id"], name: "index_fullcalendar_engine_events_on_event_series_id", using: :btree
-  end
 
   create_table "trucks", force: :cascade do |t|
     t.string   "truck_name"
@@ -51,6 +39,8 @@ ActiveRecord::Schema.define(version: 20170805183434) do
     t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
+    t.string   "name"
+    t.text     "image"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
