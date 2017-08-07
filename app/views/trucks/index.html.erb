@@ -1,33 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="album text-muted">
+  <div class="container">
+    <p id="notice"><%= notice %></p>
+<%# if current_user%>
+    <%#= image_tag(current_user.image) %>
+    <%#= current_user.name %>
+<%# end %>
+    
 
-<h1>Trucks</h1>
+    <h1>Trucks</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Truck name</th>
-      <th>Description</th>
-      <th>Main image</th>
-      <th>Thumb image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <%# @trucks.each do |truck| %>
+      
+      <%#= truck.truck_name %>
+      <%#= truck.description %>
+      <%#= truck.main_image %>
+      <%#= truck.thumb_image %>
+      <%#= link_to 'Show', truck %>
+      <%#= link_to 'Edit', edit_truck_path(truck) %>
+      <%#= link_to 'Destroy', truck, method: :delete, data: { confirm: 'Are you sure?' } %>
+      
+    <%# end %>
 
-  <tbody>
-    <% @trucks.each do |truck| %>
-      <tr>
-        <td><%= truck.truck_name %></td>
-        <td><%= truck.description %></td>
-        <td><%= truck.main_image %></td>
-        <td><%= truck.thumb_image %></td>
-        <td><%= link_to 'Show', truck %></td>
-        <td><%= link_to 'Edit', edit_truck_path(truck) %></td>
-        <td><%= link_to 'Destroy', truck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <br>
 
-<br>
-
-<%= link_to 'New Truck', new_truck_path %>
+    <%= link_to 'New Truck', new_truck_path %>
+    <div class="row">
+      <% @trucks.each do |truck| %>
+      <div class="col-md-4">
+        <div class="card">
+          <%= link_to (image_tag truck.thumb_image, width: '100%'), truck %>
+          <p class="card-text">
+            <span><%= link_to truck.truck_name, truck %></span>
+            <%= truck.description %>
+          </p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
