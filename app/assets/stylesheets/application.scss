@@ -94,7 +94,7 @@ body {
  */
 
 .masthead {
-  margin-bottom: 2rem;
+  margin-bottom: .5rem;
 }
 
 .masthead-brand {
@@ -225,5 +225,36 @@ body {
 .nav-item {
   padding: 0 10px;
 }
+
+.btn-group-wrap {
+  float: left;
+}
+
+.navbar-inner{
+  float: left;
+}
+
+.list-unstyled li {
+  text-decoration: none;
+  display: inline;
+  float: left;
+}
+
+.subnav {
+  margin:0;
+  top: 0px;
+  z-index: 1020;
+  background-color: rgba(247,247,247,0.20);
+  border-bottom: 1px solid black;
+  padding: 0px 0px 5px 0px;
+}
+
+.subnav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:10;
+}
+
 
 
