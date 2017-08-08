@@ -57,4 +57,4 @@ gem 'gritter', '~> 1.2'
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
-
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'

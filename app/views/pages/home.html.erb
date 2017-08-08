@@ -1,22 +1,25 @@
 <div class="home-container">
-	<div class="navbar subnav" role="navigation">
-	  <div class="navbar-inner">
-	     <!-- <div class="container"> -->
-	       <ul class="pager subnav-pager"> 
-	         <div class="btn-group-wrap">
-              <button type="button" class="btn btn-success">Map</button>
-              <button type="button" class="btn btn-success">Calendar</button>
-           </div>         
-	        </ul>	
-			<!-- </div> -->
+	<div class="row">
+		<div class="col-md-9">
+			<div id="tabs">
+			  <ul>
+			    <li><a href="#fragment-1"><span class="btn">Map</span></a></li>
+			    <li><a href="#fragment-2"><span class="btn">Calendar</span></a></li>
+			  </ul>
+			  <div id="fragment-1">
+			    <iframe class="google" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387361.1157595652!2d-112.1706498260122!3d40.66826815399634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x875273445a87abf1%3A0x712fdf8a99003bf4!2sSalt+Lake+County%2C+UT!5e0!3m2!1sen!2sus!4v1501713355540" width="100%" height="650" frameborder="0" style="border:0"allowfullscreen></iframe>
+			  </div>
+			  <div id="fragment-2">
+			  	<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=jared.romney28%40gmail.com&amp;color=%2329527A&amp;ctz=America%2FDenver" style="border-width:0" width="100%" height="650" frameborder="0" scrolling="no"></iframe>
+			  </div>
+			</div>
+		 
+				<script>
+				$( "#tabs" ).tabs();
+				</script>
 		</div>
-	</div>
-	<div class ="row">
-		<div class="col-md-8">
-	    <iframe class="google" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387361.1157595652!2d-112.1706498260122!3d40.66826815399634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x875273445a87abf1%3A0x712fdf8a99003bf4!2sSalt+Lake+County%2C+UT!5e0!3m2!1sen!2sus!4v1501713355540" width="100%" height="650" frameborder="0" style="border:0"allowfullscreen></iframe>
-	  </div>
-		<div class="col-md-4 center">
-		<%= render 'shared/home_body' %>
+		<div class="col-md-3 center">
+			<%= render 'shared/home_body' %>
 		</div>
-	</div>
+	</div>		 
 </div>

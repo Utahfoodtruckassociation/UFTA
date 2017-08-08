@@ -1,4 +1,11 @@
 @import "bootstrap";
+/*
+ *= require jquery-ui
+ */
+ /*
+ *= require jquery-ui/core
+ *= require jquery-ui/theme
+ */
 
 // @font-face {
 //   font-family: 'Open Sans';
@@ -255,6 +262,5 @@ body {
     width: 100%;
     z-index:10;
 }
-
 
 
