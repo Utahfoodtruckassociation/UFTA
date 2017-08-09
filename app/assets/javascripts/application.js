@@ -17,6 +17,7 @@
 //= require jquery-ui/widget
 //= require jquery-ui/position
 //= require jquery-ui/effect.all
+//= require cocoon
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
