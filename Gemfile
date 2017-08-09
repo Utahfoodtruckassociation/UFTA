@@ -59,3 +59,5 @@ gem 'omniauth-facebook', '~> 4.0'
 gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'google_maps_rails', '~> 1.1'
+gem 'cocoon', '~> 1.2', '>= 1.2.10'
+
