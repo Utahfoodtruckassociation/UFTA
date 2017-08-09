@@ -90,3 +90,15 @@ footer p {
   border: 2px solid lightgrey;
   transition-delay: .3s;
 }
+
+.image-background {
+    /* The image used */
+
+    /* Full height */
+    height: 400px; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
