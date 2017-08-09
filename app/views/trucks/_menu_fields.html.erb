@@ -1,0 +1,15 @@
+<div class="form-group nested-fields">
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description, class: 'form-control' %>
+
+  <%= f.label :food_image %>
+  <%= f.text_field :food_image, class: 'form-control' %>
+
+  <%= f.label :price %>
+  <%= f.text_field :price, class: 'form-control' %>
+
+  <%= link_to_remove_association 'Remove Menu Item', f %>
+</div>

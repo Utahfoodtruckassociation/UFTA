@@ -1,27 +1,84 @@
 <div class="image-background" style="background-image: url('<%= @truck.main_image %>')"></div>
 
+<div class="container">
+	<h1><%= @truck.truck_name.capitalize %></h1>
 
-<p id="notice"><%= notice %></p>
+	<p><%= @truck.description %></p>
 
-<p>
-  <strong>Truck name:</strong>
-  <%= @truck.truck_name %>
-</p>
+	<h2>Menu:</h2>
 
-<p>
-  <strong>Description:</strong>
-  <%= @truck.description %>
-</p>
+	<% @truck.menus.each do |menu_item| %>
+		<div class="card">
+		<div class="row menu-item">
+			<div class="col-md-3">
+					<%= image_tag menu_item.food_image, width: '100%', class: "rounded float-right myImg", id: "myImg_#{menu_item.id}", alt: "#{menu_item.title.capitalize}", onclick: "reply_click(this.id)" %>
+				<%#= image_tag "http://barcodedc.com/wp-content/gallery/food/healthfitnessrevolution-com.jpg", width: '100%', class: "rounded float-right myImg", id: "1", alt: "#{@truck.truck_name.capitalize}" %>
 
-<p>
-  <strong>Main image:</strong>
-  <%= @truck.main_image %>
-</p>
+				<div id="myModal" class="modal">
+				  <span class="close">&times;</span>
+				  <img class="modal-content" id="img01">
+				  <div id="caption"></div>
+				</div>
 
-<p>
-  <strong>Thumb image:</strong>
-  <%= @truck.thumb_image %>
-</p>
+			</div>
+			<div class="col-md-2 text-right menu-money my-auto">
+				<h3><%= number_to_currency menu_item.price %></h3>
+			</div>
+			<div class="col-md-7 food-item my-auto">
+				<h3><%= menu_item.title.capitalize %></h3>
+				<p><%= menu_item.title.capitalize %></p>
+			</div>
+		</div>
+		</div>
+	<% end %>
 
-<%= link_to 'Edit', edit_truck_path(@truck) %> |
-<%= link_to 'Back', trucks_path %>
+	<!-- <div class="row menu-item">
+		<div class="col-md-3">
+			<%#= image_tag menu_item.food_image, width: '100%' %>
+			<%#= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjrD6kezgNgCwwCN18IHCiCpNfbEN8HJn9iFEq-NcUGdikFpDfbQ", width: '100%', class: "rounded float-right", id: "2", alt: "#{@truck.truck_name.capitalize}" %>
+		</div>
+		<div class="col-md-2 text-right menu-money my-auto">
+			<h3><%#= number_to_currency "10" %></h3>
+		</div>
+		<div class="col-md-7 food-item my-auto">
+			<h3>Food Item</h3>
+			<p>description</p>
+		</div>
+	</div> -->
+
+	<%= link_to 'Edit', edit_truck_path(@truck) %> |
+	<%= link_to 'Back', trucks_path %>
+</div>
+
+
+<script type="text/javascript">
+	// Get the modal
+	var modal = document.getElementById('myModal');
+
+	// Get the image and insert it inside the modal - use its "alt" text as a caption
+
+	var img = document.getElementById(function reply_click(clicked_id) {
+		clicked_id
+	});
+
+	var modalImg = document.getElementById("img01");
+	var captionText = document.getElementById("caption");
+	img.onclick = function(){
+	    modal.style.display = "block";
+	    modalImg.src = this.src;
+	    captionText.innerHTML = this.alt;
+	}
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() { 
+	    modal.style.display = "none";
+	}
+</script>
+
+
+
+
+

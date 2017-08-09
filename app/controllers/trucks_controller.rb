@@ -70,6 +70,10 @@ class TrucksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def truck_params
-      params.require(:truck).permit(:truck_name, :description, :main_image, :thumb_image)
+      params.require(:truck).permit(:truck_name,
+                                    :description,
+                                    :main_image,
+                                    :thumb_image,
+                                    menus_attributes: [:id, :title, :description, :food_image, :price, :_destroy])
     end
 end
