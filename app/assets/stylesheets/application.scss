@@ -93,6 +93,7 @@ body {
 /* Padding for spacing */
 .inner {
   padding: 2rem;
+  float: left;
 }
 
 
@@ -106,6 +107,7 @@ body {
 
 .masthead-brand {
   margin-bottom: 0;
+  float: left;
 }
 
 .nav-masthead .nav-link {
@@ -247,20 +249,36 @@ body {
   float: left;
 }
 
-.subnav {
-  margin:0;
-  top: 0px;
-  z-index: 1020;
-  background-color: rgba(247,247,247,0.20);
-  border-bottom: 1px solid black;
-  padding: 0px 0px 5px 0px;
+// .subnav {
+//   margin:0;
+//   top: 0px;
+//   z-index: 1020;
+//   background-color: rgba(247,247,247,0.20);
+//   border-bottom: 1px solid black;
+//   padding: 0px 0px 5px 0px;
+// }
+
+// .subnav.affix {
+//     position: fixed;
+//     top: 0;
+//     width: 100%;
+//     z-index:10;
+// }
+
+.googles {
+  margin-left: 1%;
 }
 
-.subnav.affix {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index:10;
+.inner {
+  width: 100%;
+}
+
+.nav-login {
+      padding: .25rem 0;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.7);
+    background-color: transparent;
+    display: inline-block;
 }
 
 

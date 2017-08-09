@@ -1,6 +1,32 @@
-<h1>Pages#about</h1>
-<p>Find me in app/views/pages/about.html.erb</p>
-
-<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=jared.romney28%40gmail.com&amp;color=%2329527A&amp;ctz=America%2FDenver" style="border-width:0" width="100%" height="650" frameborder="0" scrolling="no"></iframe>
-
-
+<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Login<span class="caret"></span></a>
+<ul id="dropdown-login" class="dropdown-menu" style="padding: 5px 10px 0px 10px;">
+   <%= form_for("user", :url => user_session_path) do |f| %>
+      <li>
+         <div class="control-group">
+            <%= f.label :login, :class => "control-label" %>
+            <div class="controls">
+               <%= f.text_field :login %>
+            </div>
+         </div>
+      </li>
+      <li>
+         <div class=”control-group”>
+            <%= f.label :password, :class => "control-label" %>
+            <div class="controls">
+               <%= f.password_field :password %>
+            </div>
+         </div>
+      </li>
+      <li>
+         <div class=”control-group”>
+            <%= f.label :remember_me, :class => "control-label" %>
+            <div class="controls">
+               <%= f.check_box :remember_me %>
+            </div>
+         </div>
+      </li>
+      <li>
+         <%= f.submit "Sign in", :class => "btn btn-primary" %>
+      </li>
+   <% end %>
+</ul>

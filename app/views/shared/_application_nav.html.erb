@@ -15,6 +15,11 @@
         <li class="nav-item">
           <%= link_to "Contact", contact_path, class: "nav-link #{active? contact_path}" %>
         </li>
+
+        <li><p class="navbar-text logs nav-login">Have an account?</p></li>
+        <li class="nav-item">
+          <%= login_helper 'nav-link' %>
+        </li>
 			</nav>
   	</div>
 	</div>
