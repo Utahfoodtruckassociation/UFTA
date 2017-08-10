@@ -35,7 +35,7 @@
           <%= link_to (image_tag truck.thumb_image, width: '100%'), truck %>
           <p class="card-text">
             <span><%= link_to truck.truck_name, truck %></span>
-            <%= truck.description %>
+            <%= truck.description.truncate(20) %>
           </p>
         </div>
       </div>
