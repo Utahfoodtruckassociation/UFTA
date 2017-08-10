@@ -2,24 +2,13 @@
 	<div class="masthead clearfix">
     <div class="inner">
       <h3 class="masthead-brand">Utah Food Truck Association</h3>
-      <nav class="nav nav-masthead">
-        <li class="nav-item">
-           <%= link_to "Home", root_path, class: "nav-link #{active? root_path}" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Trucks", trucks_path, class: "nav-link #{active? trucks_path}" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "About Us", about_path, class: "nav-link #{active? about_path}" %>
-        </li>        
-        <li class="nav-item">
-          <%= link_to "Contact", contact_path, class: "nav-link #{active? contact_path}" %>
-        </li>
+      <nav class="nav nav-masthead app-nav">
+        <%= nav_helper 'nav-link', 'span' %>
 
-        <li><p class="navbar-text logs nav-login">Have an account?</p></li>
-        <li class="nav-item">
+        <span><p class="navbar-text logs nav-login">Have an account?</p></span>
+        <span class="nav-item">
           <%= login_helper 'nav-link' %>
-        </li>
+        </span>
 			</nav>
   	</div>
 	</div>
