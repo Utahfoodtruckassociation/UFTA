@@ -1,10 +1,11 @@
 <div class="image-background" style="background-image: url('<%= @truck.main_image %>')"></div>
+
 <div class="container">
-	<h1><%= @truck.truck_name.capitalize %></h1>
+	<h1 class="truck-title"><%= @truck.truck_name.capitalize %></h1>
 
-	<p><%= @truck.description %></p>
+	<p class="truck-info"><%= @truck.description %></p>
 
-	<h2>Menu:</h2>
+	<h1>Menu:</h1>
 
 	<% @truck.menus.each do |menu_item| %>
 		<div class="card">

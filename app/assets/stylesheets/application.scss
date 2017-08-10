@@ -8,15 +8,15 @@
  *= require jquery-ui/theme
  */
 
-// @font-face {
-//   font-family: 'Open Sans';
-//   src:font-url('Open_Sans/OpenSans-Regular.ttf')
-// }
 
-// @font-face {
-//   font-family: 'Sansita';
-//   src:font-url('Sansita/Sansita-Regular.ttf')
-// }
+@font-face {
+  font-family: 'Sedgwick Ave';
+  src:font-url('Sedgwick_Ave/SedgwickAve-Regular.ttf')
+}
+@font-face {
+  font-family: 'Roboto';
+  src:font-url('Roboto/Roboto-Black.ttf')
+}
 
 /*
  * Globals
@@ -56,7 +56,7 @@ body {
 html,
 body {
   height: 100%;
-  // font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 body {
   color: #fff;
@@ -64,14 +64,14 @@ body {
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
 }
 
-// h1, .h1,
-// h2, .h2,
-// h3, .h3,
-// h4, .h4,
-// h5, .h5,
-// h6, .h6 {
-//   font-family: 'Sansita', sans-serif;
-// }
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6, nav a {
+  font-family: 'Sedgwick Ave', cursive;
+}
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
@@ -224,13 +224,10 @@ body {
 .app-nav span {
   margin-left: 15px;
   margin-right: 15px;
+  font-size: 1.2em;
 }
 .app-nav a {
   display: inline-block;
-}
-.app-nav span {
-  margin-left: 10px;
-  margin-right: 10px;
 }
 .navbar-inner{
   float: left;

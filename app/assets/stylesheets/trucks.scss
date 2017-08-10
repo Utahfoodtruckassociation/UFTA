@@ -1,19 +1,19 @@
 @import "bootstrap";
 @import "gritter";
 
-// @font-face {
-//   font-family: 'Open Sans';
-//   src:font-url('Open_Sans/OpenSans-Regular.ttf')
-// }
 
-// @font-face {
-//   font-family: 'Sansita';
-//   src:font-url('Sansita/Sansita-Regular.ttf')
-// }
+@font-face {
+  font-family: 'Sedgwick Ave';
+  src:font-url('Sedgwick_Ave/SedgwickAve-Regular.ttf')
+}
+@font-face {
+  font-family: 'Roboto';
+  src:font-url('Roboto/Roboto-Black.ttf')
+}
 
 body {
   // min-height: 75rem; /* Can be removed; just added for demo purposes */
-  // font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1, .h1,
@@ -22,7 +22,7 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  // font-family: 'Sansita', sans-serif;
+  font-family: 'Sedgwick Ave', cursive;
 }
 
 .navbar {
@@ -106,6 +106,16 @@ footer p {
 }
 .food-item {
   border-left: 2px solid grey;
+}
+.container {
+  margin-top: 10px;
+}
+.truck-title {
+  font-size: 5em;
+  margin: 20px 0;
+}
+.truck-info {
+  font-size: 1.3em;
 }
 
 /* 
