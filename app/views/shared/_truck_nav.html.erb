@@ -1,0 +1,25 @@
+<div class="collapse bg-inverse" id="navbarHeader">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 py-4">
+        <h4 class="text-white"><%= link_to (image_tag "UFTAlogo.png", :class => "logo2"), root_path %></h4>
+        <p class="text-muted">Utah Food Truck Association is a Non-Profit organization that is made for you! We wanted to help out our most loyal customers by giving them the BEST way to find the BEST food trucks in Utah! </p>
+      </div>
+      <div class="col-sm-4 py-4">
+        <h4 class="text-white">Explore</h4>
+        <ul class="list-unstyled">
+          <%= nav_helper 'text-white', 'li' %>
+          <li><%= login_helper "text-white" %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="navbar navbar-inverse bg-inverse">
+  <div class=" d-flex justify-content-between">
+    <a href="/trucks" class="navbar-brand"><%= image_tag "UFTAlogo2.png", :class => "logotwo" %></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</div>

@@ -1,16 +1,36 @@
-<div class=' app-container'>
+<!-- <div class=' app-container'>
 	<div class="masthead clearfix">
     <div class="inner">
-      <h3 class="masthead-brand"><%= image_tag "UFTAlogo.png", :class => "logo" %></h3>
+      # <h3 class="masthead-brand"><%#= image_tag "UFTAlogo.png", :class => "logo" %></h3>
       <nav class="nav nav-masthead app-nav">
+        <%#= nav_helper 'nav-link', 'span' %>
+
+        <span><p class="navbar-text logs nav-login">Have an account?</p></span>
+        <span class="nav-item">
+          <%#= login_helper 'nav-link' %>
+        </span>
+			</nav>
+  	</div>
+	</div>
+</div> -->
+
+<div class="masthead clearfix">
+  <div class="inner">
+    <h3 class="masthead-brand"><%= link_to (image_tag "UFTAlogo.png", :class => "logo"), root_path %></h3>
+    <nav class="nav nav-masthead app-nav navbar navbar-toggleable-md app-nav">
+
+      <button class="navbar-toggler navbar-toggler-right navbar-styles" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <%= nav_helper 'nav-link', 'span' %>
 
         <span><p class="navbar-text logs nav-login">Have an account?</p></span>
         <span class="nav-item">
           <%= login_helper 'nav-link' %>
-        </span>
-			</nav>
-  	</div>
-	</div>
+        </span>  
+      </div>
+    </nav>
+  </div>
 </div>
-

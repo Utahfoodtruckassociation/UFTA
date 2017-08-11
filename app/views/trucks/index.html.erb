@@ -27,15 +27,15 @@
 
     <br>
 
-    
     <%= link_to 'New Truck', new_truck_path %>
     <div class="row">
       <% @trucks.each do |truck| %>
       <div class="col-md-4">
-        <div class="card">
+        <div class="card thumb-img">
           <%= link_to (image_tag truck.thumb_image, width: '100%'), truck %>
           <p class="card-text">
             <span><%= link_to truck.truck_name, truck %></span>
+            <br>
             <%= truck.description.truncate(20) %>
           </p>
         </div>

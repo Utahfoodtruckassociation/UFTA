@@ -63,12 +63,16 @@ h6, .h6 {
   border: 0;
 }
 
-.card > img {
+.card img {
   margin-bottom: .75rem;
+}
+.thumb-img img {
+  height: 300px;
+  object-fit: cover;
 }
 
 .card-text {
-  font-size: 85%;
+  font-size: 150%;
 }
 
 footer {
@@ -244,9 +248,16 @@ footer p {
   background-size: cover;
 }
 
-
-
 /* 
 * Big image view css end
 */
+
+@media (max-width: 50em) {
+  .truck-title {
+    font-size: 3em;
+  }
+  .truck-info {
+    font-size: 1.1em;
+  }
+}
 
