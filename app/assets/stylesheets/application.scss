@@ -314,10 +314,17 @@ h6, .h6, .nav a {
   }
   .show {
     background-color: rgba(51, 51, 51, .7);
+    border-radius: 5px;
   }
   .logo {
     width: 50%;
   }
 }
+@media (max-width: 40em) {
+  .logo {
+    width: 100%;
+  }
+}
+
 
 
