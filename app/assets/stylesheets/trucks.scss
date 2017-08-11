@@ -68,7 +68,7 @@ h6, .h6 {
 }
 
 .card-text {
-  font-size: 85%;
+  font-size: 150%;
 }
 
 footer {
@@ -244,9 +244,16 @@ footer p {
   background-size: cover;
 }
 
-
-
 /* 
 * Big image view css end
 */
+
+@media (max-width: 50em) {
+  .truck-title {
+    font-size: 3em;
+  }
+  .truck-info {
+    font-size: 1.1em;
+  }
+}
 
