@@ -19,12 +19,8 @@ module ApplicationHelper
         title: 'Trucks'
       },
       {
-        url: about_us_path,
-        title: 'About Us'
-      },
-      {
-        url: contact_path,
-        title: 'Contact'
+        url: our_company_path,
+        title: 'Our Company'
       },
     ]
   end
