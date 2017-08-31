@@ -292,6 +292,11 @@ h6, .h6, .nav a {
   // left: 20px;
 }
 
+.truck-list {
+  height: 770px;
+  overflow-y: scroll;
+}
+
 @media (max-width: 62em) {
   .nav-masthead {
     width: 100%;
