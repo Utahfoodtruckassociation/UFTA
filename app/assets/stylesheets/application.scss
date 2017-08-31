@@ -256,9 +256,6 @@ h6, .h6, .nav a {
 //   align-items: center;
 //   margin-top: 10px;
 // }
-.truck-list {
-  margin-top: 20px;
-}
 
 .home-container {
   margin: 100px 1%;
@@ -322,6 +319,9 @@ h6, .h6, .nav a {
   }
   .logo {
     width: 50%;
+  }
+  .truck-list {
+    margin-top: 20px;
   }
 }
 @media (max-width: 40em) {
