@@ -13,7 +13,7 @@ gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -51,16 +51,19 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'devise', '~> 4.3'
 gem 'gritter', '~> 1.2'
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
-gem 'google_maps_rails', '~> 1.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.10'
 gem 'carrierwave', '~> 1.1'
 gem 'carrierwave-aws', '~> 1.2'
 gem 'mini_magick', '~> 4.8'
 
+gem 'google-api-client', '~> 0.11', require: 'google/apis/calendar_v3'
+
+gem 'geocoder', '~> 1.4', '>= 1.4.4'
+gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'

@@ -1,3 +1,4 @@
+@import "bootstrap-sprockets";
 @import "bootstrap";
 @import "gritter";
 /*
@@ -293,7 +294,7 @@ h6, .h6, .nav a {
 }
 
 .truck-list {
-  height: 770px;
+  height: 710px;
   overflow-y: scroll;
 }
 

@@ -35,13 +35,15 @@ end
 
 puts "3 trucks created"
 
-3.times do |menu|
-	Truck.first.menus.create!(
-		title: "French Toast Donuts #{menu}",
-		description: "Now that we've seen Procs and Lambdas I think it's important to clarify the difference between the two. There are two key differences in addition to the syntax. Please note that the differences are subtle,",
-		food_image: "https://s3.amazonaws.com/dj-food-truck/uploads/menu/food_image/4/cookies.jpg",
-		price: "7.99"
-	)
+Truck.all.each do |truck|
+	rand(4).times do |menu|
+		truck.menus.create!(
+			title: "French Toast Donuts #{menu}",
+			description: "Now that we've seen Procs and Lambdas I think it's important to clarify the difference between the two. There are two key differences in addition to the syntax. Please note that the differences are subtle,",
+			food_image: "https://s3.amazonaws.com/dj-food-truck/uploads/menu/food_image/4/cookies.jpg",
+			price: "7.99"
+		)
+	end
 end
 
 puts "3 Menu Items created"
