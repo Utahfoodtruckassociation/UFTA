@@ -7,19 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(
-	email: "sample@gmail.com",
+	email: "truck@gmail.com",
 	password: "asdfasdf",
 	password_confirmation: "asdfasdf",
-	name: "Regular User"
+	name: "Truck User",
+	roles: "truck"
 )
 
-puts "1 Regular user created"
+puts "1 Truck user created"
 
 User.create!(
 	email: "Admin@gmail.com",
 	password: "asdfasdf",
 	password_confirmation: "asdfasdf",
-	name: "Admin User"
+	name: "Admin User",
+	roles: "admin"
 )
 
 puts "1 Admin user created"
