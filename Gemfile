@@ -67,3 +67,4 @@ gem 'google-api-client', '~> 0.11', require: 'google/apis/calendar_v3'
 
 gem 'geocoder', '~> 1.4', '>= 1.4.4'
 gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
+gem 'petergate', '~> 1.7', '>= 1.7.5'
