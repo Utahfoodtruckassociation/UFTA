@@ -3,8 +3,8 @@ class PagesController < ApplicationController
   	@trucks = Truck.order('created_at ASC')
   	@cal = GoogleCalendarAuth.new
 
-  	count = 0
     @glocation = []
+  	count = 0
     
   	@cal.events.each do |event|
   		if (Geocoder.coordinates(event.location)) != nil && (event.summary) != nil && event.location.match("UT")

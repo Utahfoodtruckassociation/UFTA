@@ -34,13 +34,13 @@
   <hr>
 
   <h2>Menu:</h2>
-  <div>
+  <div class="form-group">
     <%= f.fields_for :menus do |menu_form| %>
       <%= render 'menu_fields', f: menu_form %>
     <% end %>
 
-    <div>
-      <%= link_to_add_association 'Add Menu Item', f, :menus %>
+    <div class="form-group">
+      <%= link_to_add_association 'Add Menu Item', f, :menus, class: 'btn btn-outline-success' %>
     </div>
   </div>
 

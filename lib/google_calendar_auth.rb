@@ -1,3 +1,4 @@
+# https://stackoverflow.com/questions/40722687/how-to-set-up-google-calendar-api-using-ruby-client-for-server-to-server-applica
 require 'googleauth'
 require 'google/apis/calendar_v3'
 
