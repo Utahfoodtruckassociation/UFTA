@@ -336,6 +336,13 @@ h6, .h6, .nav a {
   .logo {
     width: 100%;
   }
+  .main-container {
+    margin-top: 0px;
+  }
+  .nav {
+    z-index: 10;
+    margin-bottom: 35px;
+  }
 }
 
 // OUR COMPANY PAGE
