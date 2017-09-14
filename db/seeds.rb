@@ -13,8 +13,15 @@ User.create!(
 	name: "Truck User",
 	roles: "truck"
 )
+User.create!(
+	email: "truck1@gmail.com",
+	password: "asdfasdf",
+	password_confirmation: "asdfasdf",
+	name: "Truck User 1",
+	roles: "truck"
+)
 
-puts "1 Truck user created"
+puts "2 Truck user created"
 
 User.create!(
 	email: "Admin@gmail.com",
@@ -30,8 +37,9 @@ puts "1 Admin user created"
 	Truck.create!(
 		truck_name: "Art City Donuts: #{truck}",
 		description: "Now that we've seen Procs and Lambdas I think it's important to clarify the difference between the two. There are two key differences in addition to the syntax. Please note that the differences are subtle, even to the point that you may never even notice them while programming. Still, they're good to know, especially if you plan on building advanced programs.",
-		main_image: "https://s3.amazonaws.com/dj-food-truck/uploads/truck/main_image/2/donutss.jpg",
-		thumb_image: "https://s3.amazonaws.com/dj-food-truck/uploads/truck/thumb_image/2/donut.jpg"
+		main_image: "http://via.placeholder.com/600x400",
+		thumb_image: "http://via.placeholder.com/350x200",
+		user_id: "#{truck + 1}"
 	)
 end
 
@@ -42,7 +50,7 @@ Truck.all.each do |truck|
 		truck.menus.create!(
 			title: "French Toast Donuts #{menu}",
 			description: "Now that we've seen Procs and Lambdas I think it's important to clarify the difference between the two. There are two key differences in addition to the syntax. Please note that the differences are subtle,",
-			food_image: "https://s3.amazonaws.com/dj-food-truck/uploads/menu/food_image/4/cookies.jpg",
+			food_image: "http://via.placeholder.com/350x200",
 			price: "7.99"
 		)
 	end

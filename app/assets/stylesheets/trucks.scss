@@ -11,6 +11,10 @@
   src:font-url('Roboto/Roboto-Black.ttf')
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
 body {
   // min-height: 75rem; /* Can be removed; just added for demo purposes */
   font-family: 'Roboto', sans-serif;
@@ -112,9 +116,9 @@ footer p {
 .food-item {
   border-left: 2px solid grey;
 }
-.container {
-  margin-top: 10px;
-}
+// .container {
+//   margin-top: 10px;
+// }
 .truck-title {
   font-size: 5em;
   margin: 20px 0;
