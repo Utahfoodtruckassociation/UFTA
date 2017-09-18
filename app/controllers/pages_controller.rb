@@ -7,8 +7,7 @@ class PagesController < ApplicationController
   	count = 0
     
   	@cal.events.each do |event|
-  		if (Geocoder.coordinates(event.location)) != nil && (event.summary) != nil && event.location.match("UT")
-      # && (event.start.date_time).to_date == Date.today
+  		if (Geocoder.coordinates(event.location)) != nil && (event.summary) != nil && event.location.match("UT") && (event.start.date_time).to_date.month == Date.today.month
         @glocation << Geocoder.coordinates(event.location)
         @glocation[count] << event.summary
         @glocation[count] << event.start.date_time

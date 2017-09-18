@@ -17,7 +17,9 @@ class GoogleCalendarAuth
     # If you have more than 2500 results, you'll need to get more than    
     # one set of results.
     @events = nil if reload
+
     @events ||= service.list_events(calendar_id, max_results: 100).items
+
   end
 
 private

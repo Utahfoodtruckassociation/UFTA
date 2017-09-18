@@ -18,3 +18,5 @@
 
 /config/secrets.yml
 .env
+
+/lib/google_api.json
