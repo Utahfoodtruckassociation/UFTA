@@ -9,4 +9,8 @@ class Truck < ApplicationRecord
 
 	mount_uploader :thumb_image, ImageUploader
 	mount_uploader :main_image, ImageUploader
+
+	def self.search(search)
+  	where("truck_name ILIKE ? OR description ILIKE ?", "%#{search}%", "%#{search}%") 
+	end
 end
