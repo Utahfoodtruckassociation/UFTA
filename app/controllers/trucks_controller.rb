@@ -5,7 +5,13 @@ class TrucksController < ApplicationController
   # GET /trucks
   # GET /trucks.json
   def index
-    @trucks = Truck.order('created_at ASC')
+    # @trucks = Truck.order('created_at ASC')
+    
+    if params[:search]
+      @trucks = Truck.search(params[:search]).order("created_at DESC")
+    else
+      @trucks = Truck.all.order("created_at DESC")
+    end
   end
 
   # GET /trucks/1
