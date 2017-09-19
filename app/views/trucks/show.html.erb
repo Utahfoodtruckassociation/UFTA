@@ -51,6 +51,7 @@
 	<% if logged_in?(:admin) || (logged_in?(:truck) && current_user.id == @truck.user_id) %> 
     <%= link_to 'Edit', edit_truck_path(@truck), class: 'btn btn-warning' %> |
     <%= link_to 'Delete', truck_path(@truck), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+  <% end %>
 </div>
 
 
