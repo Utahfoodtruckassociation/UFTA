@@ -18,8 +18,8 @@ class GoogleCalendarAuth
     # one set of results.
     @events = nil if reload
 
-    @events ||= service.list_events(calendar_id, 
-                                    max_results: 250,
+    @events ||= service.list_events(calendar_id,
+                                    max_results: 20,
                                     single_events: true,
                                     order_by: 'startTime',
                                     time_min: Time.now.iso8601).items
