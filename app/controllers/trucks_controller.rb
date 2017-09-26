@@ -32,6 +32,7 @@ class TrucksController < ApplicationController
   # POST /trucks.json
   def create
     @truck = Truck.new(truck_params)
+    @truck.user_id = current_user.id
 
     respond_to do |format|
       if @truck.save
@@ -80,6 +81,7 @@ class TrucksController < ApplicationController
                                     :description,
                                     :main_image,
                                     :thumb_image,
+                                    :user_id,
                                     menus_attributes: [:id, :title, :description, :food_image, :price, :_destroy])
     end
 end

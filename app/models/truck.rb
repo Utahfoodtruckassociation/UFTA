@@ -1,6 +1,6 @@
 class Truck < ApplicationRecord
 	has_many :menus, dependent: :destroy
-	belongs_to :user
+	belongs_to :user, required: true
 	accepts_nested_attributes_for :menus,
 																allow_destroy: true,
 																reject_if: lambda { |attrs| attrs['title'].blank? }

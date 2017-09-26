@@ -11,27 +11,14 @@
 
 <div class="album text-muted">
   <div class="container">
-    <p id="notice"><%= notice %></p>
 <%# if current_user%>
     <%#= image_tag(current_user.image) %>
     <%#= current_user.name %>
 <%# end %>
 
-    <%# @trucks.each do |truck| %>
-      
-      <%#= truck.truck_name %>
-      <%#= truck.description %>
-      <%#= truck.main_image %>
-      <%#= truck.thumb_image %>
-      <%#= link_to 'Show', truck %>
-      <%#= link_to 'Edit', edit_truck_path(truck) %>
-      <%#= link_to 'Destroy', truck, method: :delete, data: { confirm: 'Are you sure?' } %>
-      
-    <%# end %>
-
     <br>
 
-    <%= link_to 'New Truck', new_truck_path if logged_in?(:admin) %>
+    <%= link_to 'New Truck', new_truck_path  %>
 
     <% if @trucks.blank? %>
       <h4 class="alert alert-danger" role="alert">There are no trucks containing the term <%= params[:search] %>.</h4>
