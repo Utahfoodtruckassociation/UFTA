@@ -46,7 +46,7 @@ end
 puts "3 trucks created"
 
 Truck.all.each do |truck|
-	rand(4).times do |menu|
+	(rand(4) + 1).times do |menu|
 		truck.menus.create!(
 			title: "French Toast Donuts #{menu}",
 			description: "Now that we've seen Procs and Lambdas I think it's important to clarify the difference between the two. There are two key differences in addition to the syntax. Please note that the differences are subtle,",

@@ -8,9 +8,10 @@ class TrucksController < ApplicationController
     # @trucks = Truck.order('created_at ASC')
 
     if params[:search]
-      @trucks = Truck.search(params[:search]).order("created_at DESC")
+      @trucks = Truck.search(params[:search]).order('created_at ASC')
+      # @trucks = Truck.search(params[:search]).order("created_at DESC")
     else
-      @trucks = Truck.all.order("created_at DESC")
+      @trucks = Truck.order('created_at ASC')
     end
   end
 
