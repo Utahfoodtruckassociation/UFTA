@@ -26,7 +26,9 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <%= nav_helper 'nav-link', 'span' %>
 
-        <span><p class="navbar-text logs nav-login">Have an account?</p></span>
+        <% if current_user.is_a?(GuestUser) %>
+          <span><p class="navbar-text logs nav-login">Have an account?</p></span>
+        <% end %>
         <span class="nav-item">
           <%= login_helper 'nav-link' %>
         </span>  
