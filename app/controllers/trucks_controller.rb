@@ -18,6 +18,23 @@ class TrucksController < ApplicationController
   # GET /trucks/1
   # GET /trucks/1.json
   def show
+    @cal = GoogleCalendarAuth.new
+
+    @glocation = []
+    count = 0
+
+    @cal.events.each do |event|
+      if (Geocoder.coordinates(event.location)) != nil && (event.summary) != nil && event.location.match("UT") && (event.start.date_time).to_date >= (Date.today - 1)
+        @glocation << Geocoder.coordinates(event.location)
+        @glocation[count] << event.summary
+        @glocation[count] << event.start.date_time
+        @glocation[count] << event.end.date_time
+        @glocation[count] << event.location
+        email = Truck.select("trucks.truck_name, users.email, users.id").joins(:user).where("users.email = '#{event.creator.email}'")
+        @glocation[count] << email.first.truck_name if email != []
+        count += 1
+      end
+    end
   end
 
   # GET /trucks/new

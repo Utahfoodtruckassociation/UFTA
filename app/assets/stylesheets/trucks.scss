@@ -319,35 +319,6 @@ footer p {
 * search bar css end
 */
 
-@media (max-width: 50em) {
-  .truck-title {
-    font-size: 3em;
-  }
-  .truck-info {
-    font-size: 1.1em;
-  }
-  .logo2 {
-    width: 100%;
-  }
-  #search-form input[type="text"] {
-    height: 50px;
-    font-size: 40px;
-    position: absolute;
-    top: 100;
-    right: 0;
-  }
-  #search-form input[type="submit"] {
-    height: 47px;
-    width: 43px;
-    position: absolute;
-    top: 100;
-    right: 0;
-  }
-  #search-form input[type="text"]:focus {
-    width: 100%;
-  }
-}
-
 /* 
 * imageUpload css start
 */
@@ -388,4 +359,33 @@ footer p {
 /* 
 * imageUpload css end
 */
+
+@media (max-width: 50em) {
+  .truck-title {
+    font-size: 3em;
+  }
+  .truck-info {
+    font-size: 1.1em;
+  }
+  .logo2 {
+    width: 100%;
+  }
+  #search-form input[type="text"] {
+    height: 50px;
+    font-size: 40px;
+    position: absolute;
+    top: 100;
+    right: 0;
+  }
+  #search-form input[type="submit"] {
+    height: 47px;
+    width: 43px;
+    position: absolute;
+    top: 100;
+    right: 0;
+  }
+  #search-form input[type="text"]:focus {
+    width: 100%;
+  }
+}
 

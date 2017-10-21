@@ -2,8 +2,28 @@
 
 <div class="container">
 	<h1 class="truck-title"><%= @truck.truck_name.capitalize %></h1>
+	
 
 	<p class="truck-info"><%= @truck.description %></p>
+
+	<h1>Events:</h1>
+
+	<p>
+		<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Show/Hide Events</a>
+	</p>
+
+	<div class="collapse" id="collapseExample">
+		<% unless @glocation.flatten.include?("#{@truck.truck_name}") %>
+			<p class="alert alert-danger" role="alert">No upcoming Events</p>
+		<% end %>
+
+		<% @glocation.each do |info| %>
+			<% if info[6] == @truck.truck_name %>
+				<span><%= info[2] %>:</span>
+				<p><%= info[3].to_date.strftime("%b. %d") %>, <%= info[3].strftime("%I:%M%p") %> - <%= info[4].strftime("%I:%M%p") %> <a href='https://maps.google.com/maps?q=<%= info[5] %>&hl=en' target='_blank'><%= info[5] %></a></p>
+			<% end %>
+		<% end %>
+	</div>
 
 	<h1>Menu:</h1>
 

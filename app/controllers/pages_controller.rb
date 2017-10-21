@@ -28,7 +28,13 @@ class PagesController < ApplicationController
       loc.to_a
       marker.lat loc[0]
       marker.lng loc[1]
-      marker.infowindow "<img src='#{loc[8]}', width='150px' /> <br><br> <a href='/trucks/#{loc[10]}'><h6>#{loc[9]}</h6></a> <a href='#{loc[6]}' target='_blank'>#{loc[2]}</a> <p>#{loc[3].strftime("%I:%M%p")} - #{loc[4].strftime("%I:%M%p")}</p> <a href='https://maps.google.com/maps?q=#{loc[5]}&hl=en' target='_blank'>#{loc[5]}</a>"
+      marker.infowindow "
+      <img src='#{loc[8]}', width='150px' /> 
+      <br><br> 
+      <a href='/trucks/#{loc[10]}'><h6>#{loc[9]}</h6></a>
+      <a href='#{loc[6]}' target='_blank'>#{loc[2]}</a>
+      <p>#{loc[3].strftime("%I:%M%p")} - #{loc[4].strftime("%I:%M%p")}</p>
+      <a href='https://maps.google.com/maps?q=#{loc[5]}&hl=en' target='_blank'>#{loc[5]}</a>"
     end
     # http://pocoinspired.com/t6/wp-content/uploads/2015/09/lunch-truck-it-favicon.jpg
     if @hash.empty?
