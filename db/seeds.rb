@@ -14,7 +14,7 @@ User.create!(
 	roles: "truck"
 )
 User.create!(
-	email: "truck1@gmail.com",
+	email: "thiep@thiepseats.com",
 	password: "asdfasdf",
 	password_confirmation: "asdfasdf",
 	name: "Truck User 1",

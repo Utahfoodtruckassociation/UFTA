@@ -211,6 +211,11 @@ h6, .h6, .nav a {
   color: black;
   text-align: left;
 }
+
+/*
+ * NAVBAR START
+ */
+
 .auth-links a {
   color: black;
 }
@@ -243,6 +248,10 @@ h6, .h6, .nav a {
   background-color: transparent;
   display: inline-block;
 }
+
+/*
+ * NAVBAR END
+ */
 
 // .app-container {
 //   display: inline-block;
@@ -301,6 +310,32 @@ h6, .h6, .nav a {
   overflow-y: scroll;
 }
 
+/*
+ * OUR COMPANY PAGE START
+ */
+
+.company-info-container {
+  margin-top: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background: image-url('backgroundfood') no-repeat;
+  background-size: cover;
+}
+.text-background {
+  background-color: rgba(0,0,0,.5);
+  padding: 20px;
+}
+.text-background p {
+  font-size: 1.5em;
+}
+.text-background hr {
+  border-color: white;
+}
+
+/*
+ * OUR COMPANY PAGE END
+ */
+
 @media (max-width: 62em) {
   .nav-masthead {
     width: 100%;
@@ -345,16 +380,3 @@ h6, .h6, .nav a {
     margin-bottom: 35px;
   }
 }
-
-// OUR COMPANY PAGE
-
-.company-info-container {
-  margin-top: 10%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  background: image-url('backgroundfood') no-repeat;
-  background-size: cover;
-}
-
-
-
