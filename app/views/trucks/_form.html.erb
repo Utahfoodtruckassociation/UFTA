@@ -35,16 +35,19 @@
 
   <hr>
 
-  <h2>Menu:</h2>
-  <div class="form-group">
-    <%= f.fields_for :menus do |menu_form| %>
-      <%= render 'menu_fields', f: menu_form %>
-    <% end %>
+  <% unless current_page?(new_truck_path) %>
+    <h2>Menu:</h2>
 
     <div class="form-group">
-      <%= link_to_add_association 'Add Menu Item', f, :menus, class: 'btn btn-outline-success' %>
+      <%= f.fields_for :menus do |menu_form| %>
+        <%= render 'menu_fields', f: menu_form %>
+      <% end %>
+
+      <div class="form-group">
+        <%= link_to_add_association 'Add Menu Item', f, :menus, class: 'btn btn-outline-success' %>
+      </div>
     </div>
-  </div>
+  <% end %>
 
   <div class="form-group">
     <%= f.submit 'Save Truck', class: 'btn btn-primary btn-block' %>

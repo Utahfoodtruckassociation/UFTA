@@ -18,7 +18,7 @@
 
     <br>
 
-    <%= link_to 'New Truck', new_truck_path if logged_in?(:admin) %>
+    <p><%= link_to 'New Truck', new_truck_path, class: "btn btn-primary" if logged_in?(:admin) %></p>
 
     <% if @trucks.blank? %>
       <h4 class="alert alert-danger" role="alert">There are no trucks containing the term <%= params[:search] %>.</h4>
