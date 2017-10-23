@@ -7,6 +7,11 @@
     <%= text_field_tag :search, params[:search], placeholder: "Search Trucks" %>
     <%= submit_tag "Search", :name => nil %>
   <% end %>
+
+  <%= form_tag(trucks_path, :method => "get", id: "dropdown-form") do %>
+    <%#= select :food_type, Truck.all.food_type, params[:dropdown], :include_blank => "- Choose Food Type -" %>
+    <%= collection_select(:dropdown, :food_type, Truck.all, :food_type, :food_type, options={:include_blank => "- Choose Food Type -"}, html_options={:onchange => 'this.form.submit()', class: "custom-select"}) %>
+  <% end %>
 </section>
 
 <div class="album text-muted">
