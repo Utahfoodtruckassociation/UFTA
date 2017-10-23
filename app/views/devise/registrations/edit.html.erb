@@ -36,6 +36,11 @@
         </div>
 
         <div class="form-group">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
           <%= f.submit "Update", class: 'btn btn-primary' %>
         </div>
       <% end %>
@@ -44,7 +49,9 @@
 
       <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></p>
 
-      <%= link_to "Back", :back %>
+      <div class="auth-links">
+        <%= link_to "Back", :back %>
+      </div>
 
     </div>
   </div>

@@ -127,6 +127,14 @@ footer p {
   font-size: 1.3em;
 }
 
+.back-to-top {
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display:none;
+}
+
 /* 
  * Big image view css start
  */

@@ -13,7 +13,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
-  has_many :truck, dependent: :destroy, :foreign_key => 'users_id'
+  has_many :truck, dependent: :destroy, :foreign_key => 'user_id'
 
 	def self.new_with_session(params, session)
 	  super.tap do |user|
