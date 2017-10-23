@@ -10,6 +10,8 @@ class TrucksController < ApplicationController
     if params[:search]
       @trucks = Truck.search(params[:search]).order('created_at ASC')
       # @trucks = Truck.search(params[:search]).order("created_at DESC")
+    elsif params[:dropdown]
+      @trucks = Truck.dropdown(params[:dropdown]).order('created_at ASC')
     else
       @trucks = Truck.order('created_at ASC')
     end
@@ -97,6 +99,7 @@ class TrucksController < ApplicationController
     def truck_params
       params.require(:truck).permit(:truck_name,
                                     :description,
+                                    :food_type,
                                     :main_image,
                                     :thumb_image,
                                     :user_id,

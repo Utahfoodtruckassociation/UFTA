@@ -328,6 +328,20 @@ footer p {
 */
 
 /* 
+* Dropdown css start
+*/
+
+#dropdown-form {
+  position: absolute;
+  right: 20px;
+  top: 25em;
+}
+
+/* 
+* Dropdown css start
+*/
+
+/* 
 * imageUpload css start
 */
 
@@ -394,6 +408,9 @@ footer p {
   }
   #search-form input[type="text"]:focus {
     width: 100%;
+  }
+  #dropdown-form {
+    top: 28em;
   }
 }
 
