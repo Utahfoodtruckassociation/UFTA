@@ -30,6 +30,7 @@
           <span><p class="navbar-text logs nav-login">Have an account?</p></span>
         <% end %>
         <span class="nav-item">
+          <%#= link_to "Admin", admin_root_path, class: 'nav-link', target: "_blank" if logged_in?(:admin) %>
           <%= login_helper 'nav-link' %>
         </span>  
       </div>

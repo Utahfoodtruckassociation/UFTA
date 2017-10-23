@@ -199,7 +199,7 @@ h6, .h6, .nav a {
   .masthead,
   .mastfoot,
   .cover-container {
-    width: 70rem;
+    // width: 70rem;
   }
 }
 
@@ -305,10 +305,30 @@ h6, .h6, .nav a {
   // left: 20px;
 }
 
+.back-to-top {
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display:none;
+}
+
+/*
+ * HOME SIDE BAR START
+ */
+
 .truck-list {
   height: 710px;
   overflow-y: scroll;
+  padding: 0 15px 0 0;
 }
+.truck-list h3 {
+  // font-size: 1.3em;
+}
+
+/*
+ * HOME SIDE BAR END
+ */
 
 /*
  * OUR COMPANY PAGE START
