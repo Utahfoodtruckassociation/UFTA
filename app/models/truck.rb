@@ -11,7 +11,7 @@ class Truck < ApplicationRecord
 	mount_uploader :main_image, ImageUploader
 
 	def self.search(search)
-  	where("truck_name ILIKE ? OR description ILIKE ?", "%#{search}%", "%#{search}%") 
+  	joins(:menus).where("trucks.truck_name ILIKE ? OR trucks.description ILIKE ? OR menus.title ILIKE ? OR menus.description ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%") 
 	end
 
 	def self.dropdown(dropdown)
