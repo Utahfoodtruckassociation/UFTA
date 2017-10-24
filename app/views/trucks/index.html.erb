@@ -10,8 +10,8 @@
 
   <%= form_tag(trucks_path, :method => "get", id: "dropdown-form") do %>
     <%#= select :food_type, Truck.all.food_type, params[:dropdown], :include_blank => "- Choose Food Type -" %>
-    <%= link_to "Clear filter", trucks_path, class: "btn btn-secondary" %>
-    <%= collection_select(:dropdown, :food_type, Truck.select(:food_type).order(:food_type).uniq, :food_type, :food_type, options={:include_blank => "- Choose Food Type -"}, html_options={:onchange => 'this.form.submit()', class: "custom-select"}) %>
+    <%= link_to "Clear filter", trucks_path, class: "btn btn-secondary filter-btn-margin-bottom" %>
+    <%= collection_select(:dropdown, :food_type, Truck.select(:food_type).order(:food_type).uniq, :food_type, :food_type, options={:include_blank => "- Choose Food Type -"}, html_options={:onchange => 'this.form.submit()', class: "custom-select filter-btn-margin-bottom"}) %>
   <% end %>
 </section>
 

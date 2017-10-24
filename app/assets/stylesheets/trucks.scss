@@ -332,9 +332,12 @@ footer p {
 */
 
 #dropdown-form {
-  position: absolute;
-  right: 20px;
-  top: 25em;
+  position: relative;
+  top: 150px;
+  text-align: right;
+}
+.filter-btn-margin-bottom {
+  margin-bottom: 5px;
 }
 
 /* 
@@ -408,9 +411,6 @@ footer p {
   }
   #search-form input[type="text"]:focus {
     width: 100%;
-  }
-  #dropdown-form {
-    top: 28em;
   }
 }
 
