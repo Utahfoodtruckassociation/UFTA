@@ -4,25 +4,38 @@ class PagesController < ApplicationController
 
   	@cal = GoogleCalendarAuth.new
 
+    @calendars = @cal.service.list_calendar_lists
+
     @glocation = []
   	count = 0
     
-  	@cal.events.each do |event|
-  		if (Geocoder.coordinates(event.location)) != nil && (event.summary) != nil && event.location.match("UT") && (event.start.date_time).to_date.month == Date.today.month
-        @glocation << Geocoder.coordinates(event.location)
-        @glocation[count] << event.summary
-        @glocation[count] << event.start.date_time
-        @glocation[count] << event.end.date_time
-        @glocation[count] << event.location
-        @glocation[count] << event.html_link
-        @glocation[count] << event.creator.email
-        image = Truck.select("trucks.thumb_image, trucks.truck_name, users.id").joins(:user).where("users.email = '#{event.creator.email}'")
-        image != [] ? @glocation[count] << image.first.thumb_image : @glocation[count] << "http://pocoinspired.com/t6/wp-content/uploads/2015/09/lunch-truck-it-favicon.jpg"
-        @glocation[count] << image.first.truck_name if image != []
-        @glocation[count] << image.first.id if image != []
-        count += 1
-      end
-  	end
+    # byebug
+    # binding.pry
+    @cal.service.list_calendar_lists.items.each do |calendar|
+
+      @events = @cal.service.list_events(calendar.id,
+                                    max_results: 20,
+                                    single_events: true,
+                                    order_by: 'startTime',
+                                    time_min: Time.now.iso8601)
+
+    	@events.items.each do |event|
+    		if (Geocoder.coordinates(event.location)) != nil && (event.summary) != nil && event.location.match("UT") && (event.start.date_time).to_date == Date.today
+          @glocation << Geocoder.coordinates(event.location)
+          @glocation[count] << event.summary
+          @glocation[count] << event.start.date_time
+          @glocation[count] << event.end.date_time
+          @glocation[count] << event.location
+          @glocation[count] << event.html_link
+          @glocation[count] << event.creator.email
+          image = Truck.select("trucks.thumb_image, trucks.truck_name, users.id").joins(:user).where("users.email = '#{event.creator.email}'")
+          image != [] ? @glocation[count] << image.first.thumb_image : @glocation[count] << "http://pocoinspired.com/t6/wp-content/uploads/2015/09/lunch-truck-it-favicon.jpg"
+          @glocation[count] << image.first.truck_name if image != []
+          @glocation[count] << image.first.id if image != []
+          count += 1
+        end
+    	end
+    end
 
   	@hash = Gmaps4rails.build_markers(@glocation) do |loc, marker|
       loc.to_a
