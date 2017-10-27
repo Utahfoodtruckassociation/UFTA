@@ -269,6 +269,8 @@ h6, .h6, .nav a {
 
 .home-container {
   margin: 0px 1%;
+  // height: 100vh;
+  // overflow: auto;
 }
 .main-container {
   margin: 100px 0;
@@ -319,6 +321,7 @@ h6, .h6, .nav a {
 
 .truck-list {
   height: 710px;
+  // height: 100%;
   overflow-y: scroll;
   padding: 0 15px 0 0;
 }
@@ -386,6 +389,11 @@ h6, .h6, .nav a {
   }
   .truck-list {
     margin-top: 20px;
+  }
+}
+@media (max-width: 48em) {
+  .truck-list {
+    padding: 0 15px;
   }
 }
 @media (max-width: 40em) {
