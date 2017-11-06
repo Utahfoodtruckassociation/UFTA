@@ -1,5 +1,5 @@
 class TrucksController < ApplicationController
-  before_action :set_truck, only: [:show, :edit, :update, :destroy]
+  before_action :set_truck, only: [:show, :edit, :update, :destroy, :new_event, :create_event]
   layout "truck"
 
   # GET /trucks
@@ -48,6 +48,25 @@ class TrucksController < ApplicationController
     end
   end
 
+  def new_event
+  end
+
+  def create_event
+    @info = params.permit(:summary, :description, :location, :start_time, :end_time)
+
+    @cal = GoogleCalendarAuth.new
+
+    @cal.new_event(@truck, @info)
+
+    respond_to do |format|
+      if @cal.new_event(@truck)
+        format.html { redirect_to root_path, notice: 'Event was successfully created.' }
+      else
+        format.html { render :new_event }
+      end
+    end
+  end
+
   # GET /trucks/new
   def new
     @truck = Truck.new
@@ -63,6 +82,10 @@ class TrucksController < ApplicationController
     @truck = Truck.new(truck_params)
     @truck.user_id = current_user.id
 
+    @cal = GoogleCalendarAuth.new
+
+    @cal.new_calendar(@truck) if (@truck.truck_name != "" && @truck.time_zone != "" && @truck.food_type != "" && @truck.description != "")
+
     respond_to do |format|
       if @truck.save
         format.html { redirect_to @truck, notice: 'Truck was successfully created.' }
@@ -77,6 +100,10 @@ class TrucksController < ApplicationController
   # PATCH/PUT /trucks/1
   # PATCH/PUT /trucks/1.json
   def update
+    @cal = GoogleCalendarAuth.new
+
+    @cal.update_calendar(@truck)
+
     respond_to do |format|
       if @truck.update(truck_params)
         format.html { redirect_to @truck, notice: 'Truck was successfully updated.' }
@@ -92,6 +119,11 @@ class TrucksController < ApplicationController
   # DELETE /trucks/1.json
   def destroy
     @truck.destroy
+
+    @cal = GoogleCalendarAuth.new
+
+    @cal.destroy_calendar(@truck)
+
     respond_to do |format|
       format.html { redirect_to trucks_url, notice: 'Truck was successfully deleted.' }
       format.json { head :no_content }
@@ -112,6 +144,8 @@ class TrucksController < ApplicationController
                                     :main_image,
                                     :thumb_image,
                                     :user_id,
+                                    :calendar_id,
+                                    :time_zone,
                                     menus_attributes: [:id, :title, :description, :food_image, :price, :_destroy])
     end
 end

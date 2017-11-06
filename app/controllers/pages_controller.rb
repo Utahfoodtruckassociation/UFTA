@@ -8,6 +8,8 @@ class PagesController < ApplicationController
 
     @glocation = []
   	count = 0
+
+    @color = ["23B1365F", "235C1158", "23711616", "23691426", "23BE6D00", "23B1440E", "23853104", "238C500B", "23754916", "2388880E", "23AB8B00", "23856508", "2328754E", "231B887A", "2328754E", "230D7813", "23528800", "23125A12", "232F6309", "232F6213", "230F4B38", "235F6B02", "234A716C", "236E6E41", "2329527A", "232952A3", "234E5D6C", "235A6986", "23182C57", "23060D5E", "23113F47", "237A367A", "235229A3", "23865A5A", "23705770", "2323164E", "235B123B", "2342104A", "23875509", "238D6F47", "236B3304", "23333333"]
     
     # byebug
     # binding.pry
@@ -20,7 +22,7 @@ class PagesController < ApplicationController
                                     time_min: Time.now.iso8601)
 
     	@events.items.each do |event|
-    		if (Geocoder.coordinates(event.location)) != nil && (event.summary) != nil && event.location.match("UT") && (event.start.date_time).to_date == Date.today
+    		if (Geocoder.coordinates(event.location)) != nil && (event.summary) != nil && event.location.match("UT") && (event.start.date_time).to_date.month == Date.today.month
           @glocation << Geocoder.coordinates(event.location)
           @glocation[count] << event.summary
           @glocation[count] << event.start.date_time

@@ -40,6 +40,7 @@ puts "1 Admin user created"
 		main_image: "http://via.placeholder.com/600x400",
 		thumb_image: "http://via.placeholder.com/350x200",
 		food_type: "Desserts",
+		time_zone: "America/Denver",
 		user_id: "#{truck + 1}"
 	)
 end
@@ -57,5 +58,5 @@ Truck.all.each do |truck|
 	end
 end
 
-puts "3 Menu Items created"
+puts "1 to 5 Menu Items created for each truck"
 
