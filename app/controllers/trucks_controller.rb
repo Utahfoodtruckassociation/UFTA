@@ -52,14 +52,14 @@ class TrucksController < ApplicationController
   end
 
   def create_event
-    @info = params.permit(:summary, :description, :location, :start_time, :end_time)
+    info = params.permit(:summary, :description, :location, :start_time, :end_time)
 
     @cal = GoogleCalendarAuth.new
 
-    @cal.new_event(@truck, @info)
+    @cal.new_event(@truck, info)
 
     respond_to do |format|
-      if @cal.new_event(@truck)
+      if @cal.new_event(@truck, info)
         format.html { redirect_to root_path, notice: 'Event was successfully created.' }
       else
         format.html { render :new_event }

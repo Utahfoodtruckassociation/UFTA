@@ -26,6 +26,24 @@ class GoogleCalendarAuth
 
   end
 
+  # -------------------------
+  # For future development for calendar feature
+  # -------------------------
+
+  # def list_acl
+  #   result = authorize.list_acls('15frgq5mk4sjtkmiv6mfnrna0g@group.calendar.google.com')
+  #   result.items.each do |e|
+  #     print e.id + ": " + e.role + "\n"
+  #   end
+  # end
+
+  # def update_acl
+  #   rule = authorize.get_acl('ufoodtruck@ufta-177701.iam.gserviceaccount.com', 'user:15frgq5mk4sjtkmiv6mfnrna0g@group.calendar.google.com')
+  #   rule.scope.type = 'default'
+  #   result = authorize.update_acl('ufoodtruck@ufta-177701.iam.gserviceaccount.com', rule.id, rule)
+  #   print result.etag
+  # end
+
   def new_calendar(truck)
     # calendar = Google::Apis::CalendarV3::Calendar.new(
     #   summary: 'calendarSummary',
@@ -40,7 +58,6 @@ class GoogleCalendarAuth
     )
     result = authorize.insert_calendar(calendar)
     truck.calendar_id = result.id #save this id in to the database to connect a user to a calendar
-    binding.pry
   end
 
   def update_calendar(truck)
@@ -57,36 +74,37 @@ class GoogleCalendarAuth
   end
 
   def new_event(truck, info)
-    binding.pry
-    # event = Google::Apis::CalendarV3::Event.new({
-    #   summary: 'Google I/O 2015',
-    #   location: '800 Howard St., San Francisco, CA 94103',
-    #   description: 'A chance to hear more about Google\'s developer products.',
-    #   start: {
-    #     date_time: '2015-05-28T09:00:00-07:00',
-    #     time_zone: 'America/Los_Angeles',
-    #   },
-    #   end: {
-    #     date_time: '2015-05-28T17:00:00-07:00',
-    #     time_zone: 'America/Los_Angeles',
-    #   },
-    #   # recurrence: [
-    #   #   'RRULE:FREQ=DAILY;COUNT=2'
-    #   # ],
-    #   # attendees: [
-    #   #   {email: 'lpage@example.com'},
-    #   #   {email: 'sbrin@example.com'},
-    #   # ],
-    #   reminders: {
-    #     use_default: false,
-    #     overrides: [
-    #       {method' => 'email', 'minutes: 24 * 60},
-    #       {method' => 'popup', 'minutes: 10},
-    #     ],
-    #   },
-    # })
+    # binding.pry
+    event = Google::Apis::CalendarV3::Event.new({
+      summary: info[:summary],
+      location: info[:location],
+      description: info[:description],
+      start: {
+        date_time: (info[:start_time].to_datetime),
+        time_zone: truck.time_zone,
+      },
+      end: {
+        date_time: (info[:end_time].to_datetime),
+        time_zone: truck.time_zone,
+      },
+      # recurrence: [
+      #   'RRULE:FREQ=DAILY;COUNT=2'
+      # ],
+      # attendees: [
+      #   {email: 'lpage@example.com'},
+      #   {email: 'sbrin@example.com'},
+      # ],
+      # reminders: {
+      #   use_default: false,
+      #   overrides: [
+      #     {method' => 'email', 'minutes: 24 * 60},
+      #     {method' => 'popup', 'minutes: 10},
+      #   ],
+      # },
+    })
 
     # result = authorize.insert_event('primary', event)
+    result = authorize.insert_event(truck.calendar_id, event)
     # puts "Event created: #{result.html_link}"
   end
 

@@ -22,7 +22,7 @@ class PagesController < ApplicationController
                                     time_min: Time.now.iso8601)
 
     	@events.items.each do |event|
-    		if (Geocoder.coordinates(event.location)) != nil && (event.summary) != nil && event.location.match("UT") && (event.start.date_time).to_date.month == Date.today.month
+    		if (Geocoder.coordinates(event.location)) != nil && (event.summary) != nil && event.location.downcase.match("ut") && (event.start.date_time).to_date.month == Date.today.month
           @glocation << Geocoder.coordinates(event.location)
           @glocation[count] << event.summary
           @glocation[count] << event.start.date_time
