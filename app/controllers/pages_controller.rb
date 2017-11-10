@@ -31,6 +31,8 @@ class PagesController < ApplicationController
           @glocation[count] << event.html_link
           @glocation[count] << event.creator.email
           image = Truck.select("trucks.thumb_image, trucks.truck_name, users.id").joins(:user).where("users.email = '#{event.creator.email}'")
+          image = Truck.select(:thumb_image, :truck_name, :id).where("trucks.calendar_id = '#{event.organizer.email}'") if image == []
+          # binding.pry
           image != [] ? @glocation[count] << image.first.thumb_image : @glocation[count] << "http://pocoinspired.com/t6/wp-content/uploads/2015/09/lunch-truck-it-favicon.jpg"
           @glocation[count] << image.first.truck_name if image != []
           @glocation[count] << image.first.id if image != []
@@ -52,12 +54,12 @@ class PagesController < ApplicationController
       <a href='https://maps.google.com/maps?q=#{loc[5]}&hl=en' target='_blank'>#{loc[5]}</a>"
     end
     # http://pocoinspired.com/t6/wp-content/uploads/2015/09/lunch-truck-it-favicon.jpg
-    if @hash.empty?
-      @hash.push({
-        lat: request.location.latitude,
-        lng: request.location.longitude
-      })
-    end
+    # if @hash.empty?
+    #   @hash.push({
+    #     lat: request.location.latitude,
+    #     lng: request.location.longitude
+    #   })
+    # end
   end
 
   def about

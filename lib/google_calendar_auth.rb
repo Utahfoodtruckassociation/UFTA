@@ -37,8 +37,19 @@ class GoogleCalendarAuth
   #   end
   # end
 
+  def insert_acl
+    rule = Google::Apis::CalendarV3::AclRule.new(
+      scope: {
+        type: 'default'
+      },
+      role: 'owner'
+    )
+    result = authorize.insert_acl('15frgq5mk4sjtkmiv6mfnrna0g@group.calendar.google.com', rule)
+    print result.id
+  end
+
   # def update_acl
-  #   rule = authorize.get_acl('ufoodtruck@ufta-177701.iam.gserviceaccount.com', 'user:15frgq5mk4sjtkmiv6mfnrna0g@group.calendar.google.com')
+  #   rule = authorize.get_acl('ufoodtruck@ufta-177701.iam.gserviceaccount.com', 'user:ufoodtruck@ufta-177701.iam.gserviceaccount.com')
   #   rule.scope.type = 'default'
   #   result = authorize.update_acl('ufoodtruck@ufta-177701.iam.gserviceaccount.com', rule.id, rule)
   #   print result.etag
@@ -80,11 +91,11 @@ class GoogleCalendarAuth
       location: info[:location],
       description: info[:description],
       start: {
-        date_time: (info[:start_time].to_datetime),
+        date_time: (Time.use_zone(truck.time_zone) { Time.zone.parse(info[:start_time])}).to_datetime,
         time_zone: truck.time_zone,
       },
       end: {
-        date_time: (info[:end_time].to_datetime),
+        date_time: (Time.use_zone(truck.time_zone) { Time.zone.parse(info[:end_time])}).to_datetime,
         time_zone: truck.time_zone,
       },
       # recurrence: [
@@ -103,9 +114,17 @@ class GoogleCalendarAuth
       # },
     })
 
+    # binding.pry
+
     # result = authorize.insert_event('primary', event)
     result = authorize.insert_event(truck.calendar_id, event)
     # puts "Event created: #{result.html_link}"
+  end
+
+  def delete_event(truck, event_id)
+    # binding.pry
+    authorize.delete_event(truck.calendar_id, event_id)
+    # authorize.delete_event("dallin.b.johnson@gmail.com", event_id)
   end
 
 private

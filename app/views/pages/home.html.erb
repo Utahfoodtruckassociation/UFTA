@@ -33,9 +33,9 @@
 
 <div class="text-background">
 <% @cal.service.list_calendar_lists.items.each do |c| %>
-	<h4><%= c.summary %> /
+	<h2><%= c.summary %> /
 	<%= c.time_zone %> /
-	<%= c.id %></h4>
+	<%= c.id %></h2>
 
 	<% @events = @cal.service.list_events(c.id,
                                     max_results: 20,
@@ -44,12 +44,12 @@
                                     time_min: Time.now.iso8601) %>
 
 	<% @events.items.each do |e| %>
-		<p><%= e.summary %></p>
+		<p><%= e.summary %> <%= e.start.date_time.strftime("%I:%M%p") %> <%= e.organizer.email %></p>
 	<% end %>
 <% end %></div>
 
 <script type="text/javascript">
-  handler = Gmaps.build('Google');
+  handler = Gmaps.build('Google', { markers: { randomize: true, maxRandomDistance: 5, clusterer: { maxZoom: 9, gridSize: 40 }}});
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   markers = handler.addMarkers(<%=raw @hash.to_json %>);
   handler.bounds.extendWith(markers);
@@ -57,6 +57,17 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   if (markers.length == 1) {
   	handler.getMap().setZoom(17);
   };
+  if(markers.length == 0){
+    navigator.geolocation.getCurrentPosition(displayOnMap);
+  }
+  function displayOnMap(position){
+	  var marker = handler.addMarker({
+	    lat: position.coords.latitude,
+	    lng: position.coords.longitude,
+	    infowindow: "Current Location"
+	  });
+	  handler.map.centerOn(marker);
+	};
   // handler.centerOn(markers);
 });
 </script>

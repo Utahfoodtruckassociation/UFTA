@@ -1,5 +1,5 @@
 class TrucksController < ApplicationController
-  before_action :set_truck, only: [:show, :edit, :update, :destroy, :new_event, :create_event]
+  before_action :set_truck, only: [:show, :edit, :update, :destroy, :new_event, :create_event, :delete_event]
   layout "truck"
 
   # GET /trucks
@@ -34,14 +34,17 @@ class TrucksController < ApplicationController
                                     time_min: Time.now.iso8601)
 
       @events.items.each do |event|
-        if (Geocoder.coordinates(event.location)) != nil && (event.summary) != nil && event.location.match("UT") && (event.start.date_time).to_date >= (Date.today - 1)
+        if (Geocoder.coordinates(event.location)) != nil && (event.summary) != nil && event.location.downcase.match("ut") && (event.start.date_time).to_date >= (Date.today - 1)
           @glocation << Geocoder.coordinates(event.location)
           @glocation[count] << event.summary
           @glocation[count] << event.start.date_time
           @glocation[count] << event.end.date_time
           @glocation[count] << event.location
           email = Truck.select("trucks.truck_name, users.email, users.id").joins(:user).where("users.email = '#{event.creator.email}'")
+          email = Truck.select(:truck_name, :id).where("trucks.calendar_id = '#{event.organizer.email}'") if email == []
+          # binding.pry
           @glocation[count] << email.first.truck_name if email != []
+          @glocation[count] << event.id
           count += 1
         end
       end
@@ -56,14 +59,29 @@ class TrucksController < ApplicationController
 
     @cal = GoogleCalendarAuth.new
 
-    @cal.new_event(@truck, info)
+    result = @cal.new_event(@truck, info)
+
+    # binding.pry
 
     respond_to do |format|
-      if @cal.new_event(@truck, info)
-        format.html { redirect_to root_path, notice: 'Event was successfully created.' }
+      if result != nil
+        format.html { redirect_to @truck, notice: 'Event was successfully created.' }
       else
         format.html { render :new_event }
       end
+    end
+  end
+
+  def delete_event
+    event_id = params[:event_id]
+
+    @cal = GoogleCalendarAuth.new
+
+    @cal.delete_event(@truck, event_id)
+
+    respond_to do |format|
+      format.html { redirect_to @truck, notice: 'Event was successfully deleted.' }
+      format.json { head :no_content }
     end
   end
 
