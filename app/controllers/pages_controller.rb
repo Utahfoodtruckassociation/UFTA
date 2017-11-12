@@ -53,6 +53,7 @@ class PagesController < ApplicationController
       <p>#{loc[3].strftime("%I:%M%p")} - #{loc[4].strftime("%I:%M%p")}</p>
       <a href='https://maps.google.com/maps?q=#{loc[5]}&hl=en' target='_blank'>#{loc[5]}</a>"
     end
+    
     # http://pocoinspired.com/t6/wp-content/uploads/2015/09/lunch-truck-it-favicon.jpg
     # if @hash.empty?
     #   @hash.push({

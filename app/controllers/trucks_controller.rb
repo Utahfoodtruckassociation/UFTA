@@ -8,7 +8,7 @@ class TrucksController < ApplicationController
     # @trucks = Truck.order('created_at ASC')
 
     if params[:search]
-      @trucks = Truck.search(params[:search]).order('created_at ASC')
+      @trucks = Truck.search(params[:search]).order('created_at ASC').uniq
       # @trucks = Truck.search(params[:search]).order("created_at DESC")
     elsif params[:dropdown]
       @trucks = Truck.dropdown(params[:dropdown]).order('created_at ASC')
@@ -34,7 +34,8 @@ class TrucksController < ApplicationController
                                     time_min: Time.now.iso8601)
 
       @events.items.each do |event|
-        if (Geocoder.coordinates(event.location)) != nil && (event.summary) != nil && event.location.downcase.match("ut") && (event.start.date_time).to_date >= (Date.today - 1)
+        if (Geocoder.coordinates(event.location)) != nil && (event.summary) != nil  && (event.start.date_time).to_date >= (Date.today - 1)
+          # && event.location.downcase.match("ut")
           @glocation << Geocoder.coordinates(event.location)
           @glocation[count] << event.summary
           @glocation[count] << event.start.date_time

@@ -30,28 +30,35 @@ class GoogleCalendarAuth
   # For future development for calendar feature
   # -------------------------
 
-  # def list_acl
-  #   result = authorize.list_acls('15frgq5mk4sjtkmiv6mfnrna0g@group.calendar.google.com')
-  #   result.items.each do |e|
-  #     print e.id + ": " + e.role + "\n"
-  #   end
-  # end
+  def list_acl
+    result = authorize.list_acls('ama32b6asqovfs9806v2ijm7ks@group.calendar.google.com')
+    result.items.each do |e|
+      print e.id + ": " + e.role + "\n"
+    end
+  end
 
-  def insert_acl
+  def insert_acl(truck)
     rule = Google::Apis::CalendarV3::AclRule.new(
       scope: {
         type: 'default'
       },
-      role: 'owner'
+      role: 'reader'
     )
-    result = authorize.insert_acl('15frgq5mk4sjtkmiv6mfnrna0g@group.calendar.google.com', rule)
+    result = authorize.insert_acl(truck.calendar_id, rule)
     print result.id
   end
 
-  # def update_acl
-  #   rule = authorize.get_acl('ufoodtruck@ufta-177701.iam.gserviceaccount.com', 'user:ufoodtruck@ufta-177701.iam.gserviceaccount.com')
+  # def update_acl(truck)
+  #   # rule = authorize.get_acl('a9jv2mu40g02el9qt7glihesqo@group.calendar.google.com', 'user:a9jv2mu40g02el9qt7glihesqo@group.calendar.google.com')
+  #   # rule.scope.type = 'default'
+  #   # rule.role = 'reader'
+  #   # result = authorize.update_acl('a9jv2mu40g02el9qt7glihesqo@group.calendar.google.com', rule.id, rule)
+  #   # print result.etag
+
+  #   rule = authorize.get_acl(truck.calendar_id, 'user:#{truck.calendar_id}')
   #   rule.scope.type = 'default'
-  #   result = authorize.update_acl('ufoodtruck@ufta-177701.iam.gserviceaccount.com', rule.id, rule)
+  #   rule.role = 'reader'
+  #   result = authorize.update_acl(truck.calendar_id, rule.id, rule)
   #   print result.etag
   # end
 
@@ -69,6 +76,7 @@ class GoogleCalendarAuth
     )
     result = authorize.insert_calendar(calendar)
     truck.calendar_id = result.id #save this id in to the database to connect a user to a calendar
+    insert_acl(truck)
   end
 
   def update_calendar(truck)
