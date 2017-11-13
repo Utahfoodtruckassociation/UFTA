@@ -30,23 +30,12 @@ class GoogleCalendarAuth
   # For future development for calendar feature
   # -------------------------
 
-  def list_acl
-    result = authorize.list_acls('ama32b6asqovfs9806v2ijm7ks@group.calendar.google.com')
-    result.items.each do |e|
-      print e.id + ": " + e.role + "\n"
-    end
-  end
-
-  def insert_acl(truck)
-    rule = Google::Apis::CalendarV3::AclRule.new(
-      scope: {
-        type: 'default'
-      },
-      role: 'reader'
-    )
-    result = authorize.insert_acl(truck.calendar_id, rule)
-    print result.id
-  end
+  # def list_acl
+  #   result = authorize.list_acls('ama32b6asqovfs9806v2ijm7ks@group.calendar.google.com')
+  #   result.items.each do |e|
+  #     print e.id + ": " + e.role + "\n"
+  #   end
+  # end
 
   # def update_acl(truck)
   #   # rule = authorize.get_acl('a9jv2mu40g02el9qt7glihesqo@group.calendar.google.com', 'user:a9jv2mu40g02el9qt7glihesqo@group.calendar.google.com')
@@ -61,6 +50,17 @@ class GoogleCalendarAuth
   #   result = authorize.update_acl(truck.calendar_id, rule.id, rule)
   #   print result.etag
   # end
+
+  def insert_acl(truck)
+    rule = Google::Apis::CalendarV3::AclRule.new(
+      scope: {
+        type: 'default'
+      },
+      role: 'reader'
+    )
+    result = authorize.insert_acl(truck.calendar_id, rule)
+    print result.id
+  end
 
   def new_calendar(truck)
     # calendar = Google::Apis::CalendarV3::Calendar.new(
@@ -90,7 +90,12 @@ class GoogleCalendarAuth
 
   def destroy_calendar(truck)
     authorize.delete_calendar(truck.calendar_id)
+    # authorize.delete_calendar("thiepseats.com_5tn760321cf7joc58io237hfa4@group.calendar.google.com")
   end
+
+  # def get_calendar
+  #   result = authorize.get_calendar('thiepseats.com_5tn760321cf7joc58io237hfa4@group.calendar.google.com')
+  # end
 
   def new_event(truck, info)
     # binding.pry
