@@ -20,3 +20,4 @@
 .env
 
 /lib/google_api.json
+/lib/google_api1.json
