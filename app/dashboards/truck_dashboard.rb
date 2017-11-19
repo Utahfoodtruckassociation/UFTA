@@ -17,6 +17,8 @@ class TruckDashboard < Administrate::BaseDashboard
     thumb_image: Field::Carrierwave,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    calendar_id: Field::String,
+    time_zone: Field::Select.with_options(collection: ["America/Chicago", "America/Denver", "America/Los_Angeles", "America/New_York"]),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -41,6 +43,8 @@ class TruckDashboard < Administrate::BaseDashboard
     :thumb_image,
     :created_at,
     :updated_at,
+    :calendar_id,
+    :time_zone,
     :user,
     :menus,
   ].freeze
@@ -53,6 +57,7 @@ class TruckDashboard < Administrate::BaseDashboard
     :description,
     :main_image,
     :thumb_image,
+    :time_zone,
     :menus,
     :user,
   ].freeze

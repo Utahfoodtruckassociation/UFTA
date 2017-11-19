@@ -19,8 +19,15 @@
 
 		<% @glocation.each do |info| %>
 			<% if info[6] == @truck.truck_name %>
-				<span><%= info[2] %>:</span>
-				<p><%= info[3].to_date.strftime("%b. %d") %>, <%= info[3].strftime("%I:%M%p") %> - <%= info[4].strftime("%I:%M%p") %> <a href='https://maps.google.com/maps?q=<%= info[5] %>&hl=en' target='_blank'><%= info[5] %></a></p>
+				<div class="row">
+					<div class="col-md-11">
+						<span><%= info[2] %>:</span>
+						<p><%= info[3].to_date.strftime("%b. %d") %>, <%= info[3].strftime("%I:%M%p") %> - <%= info[4].to_date.strftime("%b. %d") %>, <%= info[4].strftime("%I:%M%p") %> <a href='https://maps.google.com/maps?q=<%= info[5] %>&hl=en' target='_blank'><%= info[5] %></a></p>
+					</div>
+					<div class="col-md-1 center">
+						<%= link_to ("<i class='fa fa-times fa-2x' aria-hidden='true'></i>").html_safe, delete_event_path(id: @truck, event_id: info[7]), method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } if logged_in?(:admin) || (logged_in?(:truck) && current_user.id == @truck.user_id) %>
+					</div>
+				</div>
 			<% end %>
 		<% end %>
 	</div>
@@ -71,7 +78,8 @@
 	<% if logged_in?(:admin) || (logged_in?(:truck) && current_user.id == @truck.user_id) %>
 		|
     <%= link_to 'Edit', edit_truck_path(@truck), class: 'btn btn-warning' %> |
-    <%= link_to 'Delete', truck_path(@truck), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Delete', truck_path(@truck), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %> |
+    <%= link_to 'New Event', new_event_path(@truck), class: 'btn btn-primary' %>
   <% end %>
 </div>
 
