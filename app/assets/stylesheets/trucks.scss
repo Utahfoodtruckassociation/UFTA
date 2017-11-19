@@ -127,12 +127,20 @@ footer p {
   font-size: 1.3em;
 }
 
+/* 
+ * NAVBAR STYLES START
+ */
+
 .nav-text h4 {
   font-size: 1.8em;
 }
 .nav-text a {
   font-size: 1.2em;
 }
+
+/* 
+ * NAVBAR STYLES END
+ */
 
 .back-to-top {
   cursor: pointer;
@@ -391,6 +399,12 @@ footer p {
 /* 
 * imageUpload css end
 */
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 @media (max-width: 50em) {
   .truck-title {

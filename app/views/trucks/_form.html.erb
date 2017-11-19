@@ -13,20 +13,25 @@
       </div>
 
       <div class="form-group imageUpload">
-        <%= f.label :main_image, for: "#{imageId = SecureRandom.uuid}", class: "btn btn-large btn-primary" %>
+        <%= f.label :main_image, "Cover Image", for: "#{imageId = SecureRandom.uuid}", class: "btn btn-large btn-primary" %>
         <%= f.file_field :main_image, id: "#{imageId}", class: "hide", onclick: "reply_click(this.id)" %>
         <img src="" id="<%= (imageId + "1") %>" alt="Preview Image" width="200px"/>
       </div>
 
       <div class="form-group imageUpload">
-        <%= f.label :thumb_image, for: "#{imageId = SecureRandom.uuid}", class: "btn btn-large btn-primary" %>
+        <%= f.label :thumb_image, "Truck Image", for: "#{imageId = SecureRandom.uuid}", class: "btn btn-large btn-primary" %>
         <%= f.file_field :thumb_image, id: "#{imageId}", class: "hide", onclick: "reply_click(this.id)" %>
         <img src="" id="<%= (imageId + "1") %>" alt="Preview Image" width="200px"/>
       </div>
 
       <div class="form-group">
         <%= f.label :food_type %>
-        <%= f.select :food_type, options_for_select([['Barbecue'], ['Hamburgers/Hot Dogs'], ['Drinks/Coffee'], ['Desserts'], ['Hispanic'], ['Seafood/Sushi'], ['Mediterranean'], ['Breakfast'], ['Asian'], ['Pizza'], ['Ice Cream'], ['Shaved Ice/Italian Ice'], ['Indian'], ['Hawaiian']]), options={:include_blank => "- Choose Food Type -"}, html_options={class: 'form-control'} %>
+        <%= f.select :food_type, options_for_select([['Barbecue'], ['Hamburgers/Hot Dogs'], ['Drinks/Coffee'], ['Desserts'], ['Hispanic'], ['Seafood/Sushi'], ['Mediterranean'], ['Breakfast'], ['Asian'], ['Pizza'], ['Ice Cream'], ['Shaved Ice/Italian Ice'], ['Indian'], ['Hawaiian']], selected: truck.food_type), options={:prompt => "- Choose Food Type -"}, html_options={class: 'form-control'} %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :time_zone %>
+        <%= f.select :time_zone, options_for_select([['America/Chicago'], ['America/Denver'], ['America/Los_Angeles'], ['America/New_York']], selected: truck.time_zone), options={:prompt => "- Choose Time Zone -"}, html_options={class: 'form-control'} %>
       </div>
     </div>
 

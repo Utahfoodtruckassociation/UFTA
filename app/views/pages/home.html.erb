@@ -12,7 +12,11 @@
 					</div>
 			  </div>
 			  <div id="fragment-2">
-			  	<iframe src="https://calendar.google.com/calendar/embed?src=thiepseats.com_5tn760321cf7joc58io237hfa4%40group.calendar.google.com&ctz=America/Denver" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+			  	<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;<% @calendars.items.each do |c| %>src=<%= c.id %>&amp;color=%<%= @color.sample %>&amp;<% end %>src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%232F6309&amp;ctz=America/Denver" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no" class="big-iframe"></iframe>
+
+			  	<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;mode=WEEK&amp;<% @calendars.items.each do |c| %>src=<%= c.id %>&amp;color=%<%= @color.sample %>&amp;<% end %>src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%232F6309&amp;ctz=America/Denver" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no" class="small-iframe"></iframe>
+
+			  	<!-- <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=dallin.b.johnson%40gmail.com&amp;color=%23711616&amp;src=%23contacts%40group.v.calendar.google.com&amp;color=%23875509&amp;src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%232F6309&amp;src=bh8coo6i7kpj4o5mlsipgk5ooc%40group.calendar.google.com&amp;color=%238D6F47&amp;ctz=America%2FDenver" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
 			  </div>
 			</div>
 		 
@@ -27,8 +31,25 @@
 	</div>		 
 </div>
 
+<!-- <div class="text-background">
+<%# @cal.service.list_calendar_lists.items.each do |c| %>
+	<h2><%#= c.summary %> /
+	<%#= c.time_zone %> /
+	<%#= c.id %></h2>
+
+	<%# @events = @cal.service.list_events(c.id,
+                                    max_results: 20,
+                                    single_events: true,
+                                    order_by: 'startTime',
+                                    time_min: Time.now.iso8601) %>
+
+	<%# @events.items.each do |e| %>
+		<p><%#= e.summary %> <%#= e.start.date_time.strftime("%I:%M%p") %> <%#= e.organizer.email %></p>
+	<%# end %>
+<%# end %></div> -->
+
 <script type="text/javascript">
-  handler = Gmaps.build('Google');
+  handler = Gmaps.build('Google', { markers: { randomize: true, maxRandomDistance: 5, clusterer: { maxZoom: 9, gridSize: 40 }}});
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   markers = handler.addMarkers(<%=raw @hash.to_json %>);
   handler.bounds.extendWith(markers);
@@ -36,6 +57,17 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   if (markers.length == 1) {
   	handler.getMap().setZoom(17);
   };
+  if(markers.length == 0){
+    navigator.geolocation.getCurrentPosition(displayOnMap);
+  }
+  function displayOnMap(position){
+	  var marker = handler.addMarker({
+	    lat: position.coords.latitude,
+	    lng: position.coords.longitude,
+	    infowindow: "Current Location"
+	  });
+	  handler.map.centerOn(marker);
+	};
   // handler.centerOn(markers);
 });
 </script>

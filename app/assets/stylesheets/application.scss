@@ -269,6 +269,8 @@ h6, .h6, .nav a {
 
 .home-container {
   margin: 0px 1%;
+  // height: 100vh;
+  // overflow: auto;
 }
 .main-container {
   margin: 100px 0;
@@ -319,11 +321,16 @@ h6, .h6, .nav a {
 
 .truck-list {
   height: 710px;
+  // height: 100%;
   overflow-y: scroll;
   padding: 0 15px 0 0;
 }
 .truck-list h3 {
   // font-size: 1.3em;
+  padding-top: 5px;
+}
+.list-group-item-p {
+  text-align: justify;
 }
 
 /*
@@ -388,6 +395,11 @@ h6, .h6, .nav a {
     margin-top: 20px;
   }
 }
+@media (max-width: 48em) {
+  .truck-list {
+    padding: 0 15px;
+  }
+}
 @media (max-width: 40em) {
   .logo {
     width: 100%;
@@ -400,3 +412,13 @@ h6, .h6, .nav a {
     margin-bottom: 35px;
   }
 }
+ @media (max-width: 550px) {
+     .big-iframe {
+         display: none;
+     }
+ }
+ @media (min-width: 550px) {
+     .small-iframe {
+         display: none;
+     }
+ }
