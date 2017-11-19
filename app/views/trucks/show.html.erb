@@ -21,7 +21,8 @@
 			<% if info[6] == @truck.truck_name %>
 				<div class="row">
 					<div class="col-md-11">
-						<span><%= info[2] %>:</span>
+						<!-- <span><%#= info[2] %>:</span> -->
+						<a href='<%= info[8] %>' target='_blank'><%= info[2] %>:</a>
 						<p><%= info[3].to_date.strftime("%b. %d") %>, <%= info[3].strftime("%I:%M%p") %> - <%= info[4].to_date.strftime("%b. %d") %>, <%= info[4].strftime("%I:%M%p") %> <a href='https://maps.google.com/maps?q=<%= info[5] %>&hl=en' target='_blank'><%= info[5] %></a></p>
 					</div>
 					<div class="col-md-1 center">

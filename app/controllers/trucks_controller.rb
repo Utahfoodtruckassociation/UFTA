@@ -46,6 +46,7 @@ class TrucksController < ApplicationController
           # binding.pry
           @glocation[count] << email.first.truck_name if email != []
           @glocation[count] << event.id
+          @glocation[count] << event.html_link
           count += 1
         end
       end
