@@ -26,7 +26,8 @@
 						<p><%= info[3].to_date.strftime("%b. %d") %>, <%= info[3].strftime("%I:%M%p") %> - <%= info[4].to_date.strftime("%b. %d") %>, <%= info[4].strftime("%I:%M%p") %> <a href='https://maps.google.com/maps?q=<%= info[5] %>&hl=en' target='_blank'><%= info[5] %></a></p>
 					</div>
 					<div class="col-md-1 center">
-						<%= link_to ("<i class='fa fa-times fa-2x' aria-hidden='true'></i>").html_safe, delete_event_path(id: @truck, event_id: info[7]), method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } if logged_in?(:admin) || (logged_in?(:truck) && current_user.id == @truck.user_id) %>
+						<% msg = info[9] ? "Are you sure you want to delete all the recurring events?" : "Are you sure?" %>
+						<%= link_to ("<i class='fa fa-times fa-2x' aria-hidden='true'></i>").html_safe, delete_event_path(id: @truck, event_id: info[7], recurring_event_id: info[9]), method: :delete, class: "text-danger", data: { confirm: msg  } if logged_in?(:admin) || (logged_in?(:truck) && current_user.id == @truck.user_id) %>
 					</div>
 				</div>
 			<% end %>

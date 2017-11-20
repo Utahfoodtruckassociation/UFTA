@@ -28,7 +28,7 @@ class TrucksController < ApplicationController
     @cal.service.list_calendar_lists.items.each do |calendar|
 
       @events = @cal.service.list_events(calendar.id,
-                                    max_results: 20,
+                                    max_results: 10,
                                     single_events: true,
                                     order_by: 'startTime',
                                     time_min: Time.now.iso8601)
@@ -47,6 +47,7 @@ class TrucksController < ApplicationController
           @glocation[count] << email.first.truck_name if email != []
           @glocation[count] << event.id
           @glocation[count] << event.html_link
+          @glocation[count] << event.recurring_event_id
           count += 1
         end
       end
@@ -57,11 +58,15 @@ class TrucksController < ApplicationController
   end
 
   def create_event
-    info = params.permit(:summary, :description, :location, :start_time, :end_time)
+    info = params.permit(:summary, :description, :location, :start_time, :end_time, :Repeat, :freq, :interval, week: [days: []])
 
     @cal = GoogleCalendarAuth.new
 
-    result = @cal.new_event(@truck, info)
+    if info[:Repeat]
+      result = @cal.new_event_recurrence(@truck, info)
+    else
+      result = @cal.new_event(@truck, info)
+    end
 
     # binding.pry
 
@@ -76,10 +81,11 @@ class TrucksController < ApplicationController
 
   def delete_event
     event_id = params[:event_id]
+    recurring_event_id = params[:recurring_event_id]
 
     @cal = GoogleCalendarAuth.new
 
-    @cal.delete_event(@truck, event_id)
+    @cal.delete_event(@truck, event_id, recurring_event_id)
 
     respond_to do |format|
       format.html { redirect_to @truck, notice: 'Event was successfully deleted.' }
