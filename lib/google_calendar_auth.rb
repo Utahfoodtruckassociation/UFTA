@@ -51,6 +51,10 @@ class GoogleCalendarAuth
   #   print result.etag
   # end
 
+  # -------------------------
+  # This inserts ACL rule to share with users
+  # -------------------------
+
   # def insert_acl_share(truck, users)
   #   rule = Google::Apis::CalendarV3::AclRule.new(
   #     scope: {
