@@ -412,13 +412,13 @@ h6, .h6, .nav a {
     margin-bottom: 35px;
   }
 }
- @media (max-width: 550px) {
-     .big-iframe {
-         display: none;
-     }
- }
- @media (min-width: 550px) {
-     .small-iframe {
-         display: none;
-     }
- }
+@media (max-width: 550px) {
+  .big-iframe {
+    display: none;
+  }
+}
+@media (min-width: 550px) {
+  .small-iframe {
+    display: none;
+  }
+}

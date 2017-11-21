@@ -52,6 +52,24 @@ class TrucksController < ApplicationController
         end
       end
     end
+
+    @map = []
+
+    @glocation.each do |event|
+      if event[6] == @truck.truck_name
+        @map << event
+      end
+    end
+
+    @hash = Gmaps4rails.build_markers(@map) do |loc, marker|
+      marker.lat loc[0]
+      marker.lng loc[1]
+      marker.infowindow "
+      <h6>#{loc[6]}</h6>
+      <a href='#{loc[8]}' target='_blank'>#{loc[2]}</a>
+      <p>#{loc[3].strftime("%I:%M%p")} - #{loc[4].strftime("%I:%M%p")}</p>
+      <a href='https://maps.google.com/maps?q=#{loc[5]}&hl=en' target='_blank'>#{loc[5]}</a>"
+    end
   end
 
   def new_event
