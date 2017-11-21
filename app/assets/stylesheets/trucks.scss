@@ -1,6 +1,14 @@
 @import "bootstrap";
 @import "gritter";
 
+/*
+ *= require jquery-ui
+ */
+ /*
+ *= require jquery-ui/core
+ *= require jquery-ui/theme
+ */
+
 
 @font-face {
   font-family: 'Sedgwick Ave';
@@ -151,6 +159,19 @@ footer p {
 }
 
 /* 
+ * Show page css start
+ */
+
+#tabs {
+  margin-bottom: 10px;
+}
+
+/* 
+ * Show page view css end
+ */
+
+
+/* 
  * Big image view css start
  */
 
@@ -251,9 +272,10 @@ footer p {
   position: relative;
 }
 
-.glyphicon { margin-right:5px; }
-.thumbnail
-{
+.glyphicon { 
+  margin-right:5px; 
+}
+.thumbnail {
     margin-bottom: 20px;
     padding: 0px;
     -webkit-border-radius: 0px;
@@ -356,7 +378,7 @@ footer p {
 }
 
 /* 
-* Dropdown Filtering css start
+* Dropdown Filtering css end
 */
 
 /* 
@@ -432,6 +454,16 @@ footer p {
   }
   #search-form input[type="text"]:focus {
     width: 100%;
+  }
+}
+@media (max-width: 550px) {
+  .big-iframe {
+    display: none;
+  }
+}
+@media (min-width: 550px) {
+  .small-iframe {
+    display: none;
   }
 }
 
