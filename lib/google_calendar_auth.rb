@@ -51,6 +51,22 @@ class GoogleCalendarAuth
   #   print result.etag
   # end
 
+  # -------------------------
+  # This inserts ACL rule to share with users
+  # -------------------------
+
+  # def insert_acl_share(truck, users)
+  #   rule = Google::Apis::CalendarV3::AclRule.new(
+  #     scope: {
+  #       type: 'user',
+  #       value: '#{users.email}'
+  #     },
+  #     role: 'reader'
+  #   )
+  #   result = authorize.insert_acl(truck.calendar_id, rule)
+  #   print result.id
+  # end
+
   def insert_acl(truck)
     rule = Google::Apis::CalendarV3::AclRule.new(
       scope: {
@@ -98,7 +114,6 @@ class GoogleCalendarAuth
   # end
 
   def new_event(truck, info)
-    # binding.pry
     event = Google::Apis::CalendarV3::Event.new({
       summary: info[:summary],
       location: info[:location],
@@ -134,9 +149,49 @@ class GoogleCalendarAuth
     # puts "Event created: #{result.html_link}"
   end
 
-  def delete_event(truck, event_id)
+  def new_event_recurrence(truck, info)
+    recurrence = "FREQ=#{info[:freq].upcase};"
+    recurrence << "INTERVAL=#{info[:interval]};" if info[:interval]
+    recurrence << "BYDAY=#{info[:week][:days].join(",")};" if info[:week][:days]
+
     # binding.pry
-    authorize.delete_event(truck.calendar_id, event_id)
+
+    event = Google::Apis::CalendarV3::Event.new({
+      summary: info[:summary],
+      location: info[:location],
+      description: info[:description],
+      start: {
+        date_time: (Time.use_zone(truck.time_zone) { Time.zone.parse(info[:start_time])}).to_datetime,
+        time_zone: truck.time_zone,
+      },
+      end: {
+        date_time: (Time.use_zone(truck.time_zone) { Time.zone.parse(info[:end_time])}).to_datetime,
+        time_zone: truck.time_zone,
+      },
+      recurrence: [
+        "RRULE:#{recurrence}"
+      ],
+      # recurrence: [
+      #   'RRULE:FREQ=DAILY;COUNT=2'
+      # ],
+      # attendees: [
+      #   {email: 'lpage@example.com'},
+      #   {email: 'sbrin@example.com'},
+      # ],
+      # reminders: {
+      #   use_default: false,
+      #   overrides: [
+      #     {method' => 'email', 'minutes: 24 * 60},
+      #     {method' => 'popup', 'minutes: 10},
+      #   ],
+      # },
+    })
+
+    result = authorize.insert_event(truck.calendar_id, event)
+  end
+
+  def delete_event(truck, event_id, recurring_event_id)
+    recurring_event_id ? authorize.delete_event(truck.calendar_id, recurring_event_id) : authorize.delete_event(truck.calendar_id, event_id)
     # authorize.delete_event("dallin.b.johnson@gmail.com", event_id)
   end
 
