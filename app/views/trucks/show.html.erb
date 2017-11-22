@@ -6,21 +6,21 @@
 
 	<p class="truck-info"><%= @truck.description %></p>
 
+	<p>
+		<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+			Schedule and Map <i class="fa fa-eye" aria-hidden="true"></i>
+		</a>
+	</p>
 
-	<div id="tabs">
-	  <ul>
-	    <li><a href="#fragment-1"><span class="btn">Events</span></a></li>
-	    <li><a href="#fragment-2"><span class="btn">Calendar</span></a></li>
-	    <li><a href="#fragment-3" class="fragment-3"><span class="btn">Map</span></a></li>
-	  </ul>
-	  <div id="fragment-1">
-	    <h1>Events:</h1>
-
-			<p>
-				<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Show/Hide Events</a>
-			</p>
-
-			<div class="collapse" id="collapseExample">
+	<div class="collapse" id="collapseExample">
+		<div id="tabs">
+		  <ul>
+		    <li><a href="#fragment-1"><span class="btn">Events</span></a></li>
+		    <li><a href="#fragment-2"><span class="btn">Calendar</span></a></li>
+		    <li><a href="#fragment-3" class="fragment-3"><span class="btn">Map</span></a></li>
+		  </ul>
+		  <div id="fragment-1">
+		    <!-- <h1>Events:</h1> -->
 				<% unless @glocation.flatten.include?("#{@truck.truck_name}") %>
 					<p class="alert alert-danger" role="alert">No upcoming Events</p>
 				<% end %>
@@ -30,8 +30,12 @@
 						<div class="row">
 							<div class="col-md-11">
 								<!-- <span><%#= info[2] %>:</span> -->
-								<a href='<%= info[8] %>' target='_blank'><%= info[2] %>:</a>
-								<p><%= info[3].to_date.strftime("%b. %d") %>, <%= info[3].strftime("%I:%M%p") %> - <%= info[4].to_date.strftime("%b. %d") %>, <%= info[4].strftime("%I:%M%p") %> <a href='https://maps.google.com/maps?q=<%= info[5] %>&hl=en' target='_blank'><%= info[5] %></a></p>
+								<p>
+									<strong><a href='<%= info[8] %>' target='_blank'><%= info[2] %></a></strong> (<%= info[3].to_date.strftime("%b. %d") %>, <%= info[3].strftime("%I:%M%p") %> - <%= info[4].to_date.strftime("%b. %d") %>, <%= info[4].strftime("%I:%M%p") %>):
+									<br> 
+									<a href='https://maps.google.com/maps?q=<%= info[5] %>&hl=en' target='_blank'><%= info[5] %></a>
+								</p>
+								
 							</div>
 							<div class="col-md-1 center">
 								<% msg = info[9] ? "Are you sure you want to delete all the recurring events?" : "Are you sure?" %>
@@ -40,20 +44,20 @@
 						</div>
 					<% end %>
 				<% end %>
-			</div>
-	  </div>
+		  </div>
 
-	  <div id="fragment-2">
-	  	<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=<%= @truck.calendar_id %>&amp;src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%232F6309&amp;ctz=<%= @truck.time_zone %>" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no" class="big-iframe"></iframe>
+		  <div id="fragment-2">
+		  	<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=<%= @truck.calendar_id %>&amp;src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%232F6309&amp;ctz=<%= @truck.time_zone %>" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no" class="big-iframe"></iframe>
 
-	  	<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;mode=WEEK&amp;src=<%= @truck.calendar_id %>&amp;&amp;src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%232F6309&amp;ctz=<%= @truck.time_zone %>" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no" class="small-iframe"></iframe>
-	  </div>
+		  	<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;mode=WEEK&amp;src=<%= @truck.calendar_id %>&amp;&amp;src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%232F6309&amp;ctz=<%= @truck.time_zone %>" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no" class="small-iframe"></iframe>
+		  </div>
 
-	  <div id="fragment-3">
-	    <div style='width: 100%;'>
-			  <div id="map" style='width: 100%; height: 600px;'></div>
-			</div>
-	  </div>
+		  <div id="fragment-3">
+		    <div style='width: 100%;'>
+				  <div id="map" style='width: 100%; height: 600px;'></div>
+				</div>
+		  </div>
+		</div>
 	</div>
 
 <script>
@@ -142,6 +146,7 @@
 	}
 </script>
 <script type="text/javascript">
+	// Google map Javascript code
 function initialize() {
   handler = Gmaps.build('Google', { markers: { randomize: true, maxRandomDistance: 5, clusterer: { maxZoom: 9, gridSize: 40 }}});
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
