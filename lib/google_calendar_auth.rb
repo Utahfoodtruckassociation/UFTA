@@ -55,17 +55,29 @@ class GoogleCalendarAuth
   # This inserts ACL rule to share with users
   # -------------------------
 
-  # def insert_acl_share(truck, users)
-  #   rule = Google::Apis::CalendarV3::AclRule.new(
-  #     scope: {
-  #       type: 'user',
-  #       value: '#{users.email}'
-  #     },
-  #     role: 'reader'
-  #   )
-  #   result = authorize.insert_acl(truck.calendar_id, rule)
-  #   print result.id
-  # end
+  def insert_acl_share_guest(truck, users)
+    rule = Google::Apis::CalendarV3::AclRule.new(
+      scope: {
+        type: 'user',
+        value: '#{users.email}'
+      },
+      role: 'reader'
+    )
+    result = authorize.insert_acl(truck.calendar_id, rule)
+    print result.id
+  end
+
+  def insert_acl_share_truck(truck, users)
+    rule = Google::Apis::CalendarV3::AclRule.new(
+      scope: {
+        type: 'user',
+        value: '#{users.email}'
+      },
+      role: 'writer'
+    )
+    result = authorize.insert_acl(truck.calendar_id, rule)
+    print result.id
+  end
 
   def insert_acl(truck)
     rule = Google::Apis::CalendarV3::AclRule.new(
@@ -152,7 +164,7 @@ class GoogleCalendarAuth
   def new_event_recurrence(truck, info)
     recurrence = "FREQ=#{info[:freq].upcase};"
     recurrence << "INTERVAL=#{info[:interval]};" if info[:interval]
-    recurrence << "BYDAY=#{info[:week][:days].join(",")};" if info[:week][:days]
+    recurrence << "BYDAY=#{info[:week][:days].join(",")};" if info[:week]
 
     # binding.pry
 
