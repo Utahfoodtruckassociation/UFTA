@@ -7,7 +7,7 @@
 	<p class="truck-info"><%= @truck.description %></p>
 
 	<p>
-		<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+		<a class="btn btn-primary" id="icontoggle" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
 			Schedule and Map <i class="fa fa-eye" aria-hidden="true"></i>
 		</a>
 	</p>
@@ -144,6 +144,19 @@
         modal.style.display = "none";
     }
 	}
+</script>
+<script type="text/javascript">
+		// change Schedule and Map icon
+	$('#icontoggle').on('click', function(){
+    var iSelector = $(this).find('i:first');
+    if(iSelector.hasClass('fa fa-eye')) {
+      iSelector.removeClass('fa fa-eye')
+      iSelector.addClass('fa fa-eye-slash')
+    } else if (iSelector.hasClass('fa fa-eye-slash')) {
+    	iSelector.removeClass('fa fa-eye-slash')
+      iSelector.addClass('fa fa-eye')
+    }
+	});
 </script>
 <script type="text/javascript">
 	// Google map Javascript code

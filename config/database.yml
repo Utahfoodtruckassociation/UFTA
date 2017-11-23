@@ -80,6 +80,9 @@ test:
 #
 production:
   <<: *default
-  database: Ufta_production
-  username: Ufta
-  password: <%= ENV['UFTA_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE'] || 'Ufta_production' %>
+  username: <%= ENV['DATABASE_USERNAME'] || Ufta %>
+  password: <%= ENV['DATABASE_PASSWORD'] || 'changeme' %>
+  host: <%= ENV['DATABASE_HOST'] || localhost %>
+  port: <%= ENV['DATABASE_PORT'] || 5432 %>
+

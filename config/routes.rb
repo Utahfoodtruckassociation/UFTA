@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get "our_company", to:'pages#our_company'
+  get "document", to:'pages#document'
 
   root to: 'pages#home'
 
