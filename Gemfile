@@ -50,6 +50,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+# added for docker specification
+gem 'nio4r', '>= 1.2', '< 3.0'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '= 4.0.0.alpha6'
@@ -73,4 +76,3 @@ gem 'petergate', '~> 1.7', '>= 1.7.5'
 gem 'administrate', '~> 0.8.1'
 gem 'administrate-field-carrierwave', '~> 0.2.0'
 
-gem 'nio4r', '>= 1.2', '< 3.0'
