@@ -11,8 +11,6 @@ class PagesController < ApplicationController
 
     @color = ["23B1365F", "235C1158", "23711616", "23691426", "23BE6D00", "23B1440E", "23853104", "238C500B", "23754916", "2388880E", "23AB8B00", "23856508", "2328754E", "231B887A", "2328754E", "230D7813", "23528800", "23125A12", "232F6309", "232F6213", "230F4B38", "235F6B02", "234A716C", "236E6E41", "2329527A", "232952A3", "234E5D6C", "235A6986", "23182C57", "23060D5E", "23113F47", "237A367A", "235229A3", "23865A5A", "23705770", "2323164E", "235B123B", "2342104A", "23875509", "238D6F47", "236B3304", "23333333"]
     
-    # byebug
-    # binding.pry
     @cal.service.list_calendar_lists.items.each do |calendar|
 
       @events = @cal.service.list_events(calendar.id,
@@ -32,7 +30,6 @@ class PagesController < ApplicationController
           @glocation[count] << event.creator.email
           image = Truck.select("trucks.thumb_image, trucks.truck_name, users.id").joins(:user).where("users.email = '#{event.creator.email}'")
           image = Truck.select(:thumb_image, :truck_name, :id).where("trucks.calendar_id = '#{event.organizer.email}'") if image == []
-          # binding.pry
           image != [] ? @glocation[count] << image.first.thumb_image : @glocation[count] << "http://pocoinspired.com/t6/wp-content/uploads/2015/09/lunch-truck-it-favicon.jpg"
           @glocation[count] << image.first.truck_name if image != []
           @glocation[count] << image.first.id if image != []

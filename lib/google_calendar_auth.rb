@@ -161,7 +161,6 @@ class GoogleCalendarAuth
       # },
     })
 
-    # binding.pry
 
     # result = authorize.insert_event('primary', event)
     result = authorize.insert_event(truck.calendar_id, event)
@@ -173,7 +172,6 @@ class GoogleCalendarAuth
     recurrence << "INTERVAL=#{info[:interval]};" if info[:interval]
     recurrence << "BYDAY=#{info[:week][:days].join(",")};" if info[:week]
 
-    # binding.pry
 
     event = Google::Apis::CalendarV3::Event.new({
       summary: info[:summary],
