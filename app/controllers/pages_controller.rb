@@ -68,4 +68,7 @@ class PagesController < ApplicationController
 
   def contact
   end
+
+  def document
+  end
 end
