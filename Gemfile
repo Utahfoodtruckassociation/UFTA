@@ -72,3 +72,5 @@ gem 'petergate', '~> 1.7', '>= 1.7.5'
 
 gem 'administrate', '~> 0.8.1'
 gem 'administrate-field-carrierwave', '~> 0.2.0'
+
+gem 'nio4r', '>= 1.2', '< 3.0'
