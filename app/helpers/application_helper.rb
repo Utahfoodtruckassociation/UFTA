@@ -6,8 +6,13 @@ module ApplicationHelper
   	else
       if logged_in?(:admin)
         (link_to "Admin", admin_root_path, class: style, target: "_blank") + " ".html_safe +
+        (link_to "Document", document_path, class: style) + " ".html_safe +
         (link_to "Edit Account", edit_user_registration_path, class: style) + " ".html_safe +
     	  (link_to "Logout", destroy_user_session_path, method: :delete, class: style)
+      elsif logged_in?(:truck)
+        (link_to "Document", document_path, class: style) + " ".html_safe +
+        (link_to "Edit Account", edit_user_registration_path, class: style) + " ".html_safe +
+        (link_to "Logout", destroy_user_session_path, method: :delete, class: style)
       else
         (link_to "Edit Account", edit_user_registration_path, class: style) + " ".html_safe +
         (link_to "Logout", destroy_user_session_path, method: :delete, class: style)

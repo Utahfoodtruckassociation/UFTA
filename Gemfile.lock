@@ -345,5 +345,8 @@ DEPENDENCIES
   warden (~> 1.2.3)
   web-console (>= 3.3.0)
 
+RUBY VERSION
+   ruby 2.4.0p0
+
 BUNDLED WITH
    1.16.0.pre.3
