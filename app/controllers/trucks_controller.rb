@@ -43,7 +43,6 @@ class TrucksController < ApplicationController
           @glocation[count] << event.location
           email = Truck.select("trucks.truck_name, users.email, users.id").joins(:user).where("users.email = '#{event.creator.email}'")
           email = Truck.select(:truck_name, :id).where("trucks.calendar_id = '#{event.organizer.email}'") if email == []
-          # binding.pry
           @glocation[count] << email.first.truck_name if email != []
           @glocation[count] << event.id
           @glocation[count] << event.html_link
