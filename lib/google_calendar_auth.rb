@@ -118,11 +118,18 @@ class GoogleCalendarAuth
 
   def destroy_calendar(truck)
     authorize.delete_calendar(truck.calendar_id)
-    # authorize.delete_calendar("thiepseats.com_5tn760321cf7joc58io237hfa4@group.calendar.google.com")
+    # authorize.delete_calendar("calendar_id")
   end
 
+  # def destroy_calendar
+  #   authorize.delete_calendar("fhjmvt7m5a8vg9870mgth1bdmk@group.calendar.google.com")
+  #   authorize.delete_calendar("vlhtdam92b8h7nl3k90thqqsfc@group.calendar.google.com")
+  #   authorize.delete_calendar("ovs1k4875fpd6epj0562hr84ts@group.calendar.google.com")
+  #   authorize.delete_calendar("ofckvj9ncr9arl25d1ml56hd7s@group.calendar.google.com")
+  # end
+
   # def get_calendar
-  #   result = authorize.get_calendar('thiepseats.com_5tn760321cf7joc58io237hfa4@group.calendar.google.com')
+  #   result = authorize.get_calendar('calendar_id')
   # end
 
   def new_event(truck, info)
@@ -204,7 +211,7 @@ class GoogleCalendarAuth
 
   def delete_event(truck, event_id, recurring_event_id)
     recurring_event_id ? authorize.delete_event(truck.calendar_id, recurring_event_id) : authorize.delete_event(truck.calendar_id, event_id)
-    # authorize.delete_event("dallin.b.johnson@gmail.com", event_id)
+    # authorize.delete_event("calendar_id", event_id)
   end
 
 private

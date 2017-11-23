@@ -23,11 +23,11 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV['DATABASE'] || 'ufta_development' %>
-  username: <%= ENV['DATABASE_USERNAME'] || ufta_development %>
-  password: <%= ENV['DATABASE_PASSWORD'] || 'changeme' %>
-  host: <%= ENV['DATABASE_HOST'] || localhost %>
-  port: <%= ENV['DATABASE_PORT'] || 5432 %>
+  # database: <%= ENV['DATABASE'] || 'ufta_development' %>
+  # username: <%= ENV['DATABASE_USERNAME'] || ufta_development %>
+  # password: <%= ENV['DATABASE_PASSWORD'] || 'changeme' %>
+  # host: <%= ENV['DATABASE_HOST'] || localhost %>
+  # port: <%= ENV['DATABASE_PORT'] || 5432 %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
