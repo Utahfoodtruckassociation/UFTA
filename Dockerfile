@@ -8,9 +8,11 @@ WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./
 RUN bundle install --binstubs \
-    && bundle update 
+    && bundle update
 
 COPY . .
+
+RUN bin/rails assets:precompile 
 
 
 CMD puma -C config/puma.rb

@@ -134,11 +134,112 @@ footer p {
  * NAVBAR STYLES START
  */
 
-.nav-text h4 {
-  font-size: 1.8em;
+// .nav-text h4 {
+//   font-size: 1.8em;
+// }
+// .nav-text a {
+//   font-size: 1.2em;
+// }
+
+
+/*
+ * Header
+ */
+
+.masthead {
+  margin-bottom: .5rem;
+  background-color: rgba(51, 51, 51, .7) !important;
 }
-.nav-text a {
-  font-size: 1.2em;
+.masthead {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+  }
+
+.masthead-brand {
+  margin-bottom: 0;
+  float: left;
+}
+
+.nav-masthead .nav-link {
+  padding: .25rem 0;
+  font-weight: bold;
+  color: rgba(255,255,255,.5);
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: rgba(255,255,255,.25);
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav-masthead .active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+@media (min-width: 48em) {
+  .masthead-brand {
+    float: left;
+  }
+  .nav-masthead {
+    float: right;
+  }
+}
+
+.auth-links a {
+  color: black;
+}
+.register_log_in {
+  text-align: right;
+}
+.login > .card {
+  width: 32rem;
+  margin: 0 auto;
+  float:none;
+}
+.app-nav span {
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 1.5em;
+}
+.app-nav a {
+  display: inline-block;
+}
+.navbar-inner{
+  float: left;
+}
+.masthead, .inner {
+  width: 100%;
+}
+.nav-login {
+  padding: .25rem 0;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: transparent;
+  display: inline-block;
+}
+
+.navbar-styles {
+    background-color: rgba(0, 0, 0, 0.50);
+    // background-color: rgba(255, 255, 255, 0.70);
+    border-radius: 5px;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(225,225,225, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid white;
+  }
+
+.logo {
+  width: 380px;
+  // position: fixed;
+  // top: 5px;
+  // left: 20px;
 }
 
 /* 
@@ -162,7 +263,7 @@ footer p {
 }
 
 /* 
- * Show page view css end
+ * Show page css end
  */
 
 
@@ -256,6 +357,10 @@ footer p {
   }
 }
 
+/* 
+* Big image view css end
+*/
+
 .logotwo {
   width: 75px;
   position: relative;
@@ -267,16 +372,16 @@ footer p {
   position: relative;
 }
 
-.glyphicon { 
-  margin-right:5px; 
-}
-.thumbnail {
-    margin-bottom: 20px;
-    padding: 0px;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
-}
+// .glyphicon { 
+//   margin-right:5px; 
+// }
+// .thumbnail {
+//     margin-bottom: 20px;
+//     padding: 0px;
+//     -webkit-border-radius: 0px;
+//     -moz-border-radius: 0px;
+//     border-radius: 0px;
+// }
 
 #background {
   position: fixed;
@@ -292,10 +397,6 @@ footer p {
   background: image-url('food_trucks') no-repeat;
   background-size: cover;
 }
-
-/* 
-* Big image view css end
-*/
 
 /* 
 * search bar css start
@@ -449,6 +550,9 @@ footer p {
   }
   #search-form input[type="text"]:focus {
     width: 100%;
+  }
+  .app-nav a {
+    display: block;
   }
 }
 @media (max-width: 550px) {
