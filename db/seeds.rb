@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(
+User.find_or_create_by(
 	email: "truck@gmail.com",
 	password: "asdfasdf",
 	password_confirmation: "asdfasdf",
 	name: "Truck User",
 	roles: "truck"
 )
-User.create!(
+User.find_or_create_by(
 	email: "thiep@thiepseats.com",
 	password: "asdfasdf",
 	password_confirmation: "asdfasdf",
@@ -23,7 +23,7 @@ User.create!(
 
 puts "2 Truck user created"
 
-User.create!(
+User.find_or_create_by(
 	email: "Admin@gmail.com",
 	password: "asdfasdf",
 	password_confirmation: "asdfasdf",
