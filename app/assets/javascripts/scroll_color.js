@@ -16,7 +16,7 @@
 
 $(window).scroll(function() {
   if ($(this).scrollTop() > 50){ // Set position from top to add class
-    $(".masthead").css('background-color', 'rgba(51, 51, 51, .7)');
+    $(".masthead").css('background-color', 'rgba(51, 51, 51, .85)');
   } else {
     $('.masthead').css('background-color', 'transparent');
   }
