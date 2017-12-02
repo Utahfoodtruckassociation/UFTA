@@ -21,3 +21,10 @@
 
 /lib/google_api.json
 /lib/google_api1.json
+
+/pgdata
+/redisdata
+
+.DS_Store
+.DS_Store?
+
