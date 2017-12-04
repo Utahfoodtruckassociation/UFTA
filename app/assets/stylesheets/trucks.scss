@@ -15,7 +15,7 @@
 }
 
 html, body {
-  margin: 0;
+  margin: 40px 0 0 0;
   padding: 0;
 }
 body {
@@ -105,6 +105,8 @@ footer p {
 }
 
 .image-background {
+  position: relative;
+  top: -10px;
   height: 400px;
   background-position: center;
   background-repeat: no-repeat;
@@ -579,10 +581,16 @@ footer p {
   .logo {
     width: 50%;
   }
+  .image-background {
+    top: 7px;
+  }
 }
 @media (max-width: 30em) {
   .logo {
     width: 100%;
+  }
+  .image-background {
+    top: 5px;
   }
 }
 

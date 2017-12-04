@@ -126,6 +126,7 @@ class GoogleCalendarAuth
   #   authorize.delete_calendar("vlhtdam92b8h7nl3k90thqqsfc@group.calendar.google.com")
   #   authorize.delete_calendar("ovs1k4875fpd6epj0562hr84ts@group.calendar.google.com")
   #   authorize.delete_calendar("ofckvj9ncr9arl25d1ml56hd7s@group.calendar.google.com")
+  #   authorize.delete_calendar("ojnlpainplb4radpiojenqojhk@group.calendar.google.com")
   # end
 
   # def get_calendar
