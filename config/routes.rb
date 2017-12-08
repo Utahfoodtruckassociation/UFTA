@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "new_event/:id", to:'trucks#new_event', as: 'new_event'
   post "create_event/:id", to:'trucks#create_event', as: 'create_event'
   delete "delete_event/:id", to: 'trucks#delete_event', as: 'delete_event'
+  post "follow_truck_guest/:id", to: 'trucks#follow_truck_guest', as: "follow_truck_guest"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 

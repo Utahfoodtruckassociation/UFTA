@@ -1,5 +1,5 @@
 class TrucksController < ApplicationController
-  before_action :set_truck, only: [:show, :edit, :update, :destroy, :new_event, :create_event, :delete_event]
+  before_action :set_truck, only: [:show, :edit, :update, :destroy, :new_event, :create_event, :delete_event, :follow_truck_guest]
   layout "truck"
 
   # GET /trucks
@@ -68,6 +68,22 @@ class TrucksController < ApplicationController
       <a href='#{loc[8]}' target='_blank'>#{loc[2]}</a>
       <p>#{loc[3].strftime("%I:%M%p")} - #{loc[4].strftime("%I:%M%p")}</p>
       <a href='https://maps.google.com/maps?q=#{loc[5]}&hl=en' target='_blank'>#{loc[5]}</a>"
+    end
+  end
+
+  def follow_truck_guest
+    info = params.permit(:email)
+
+    @cal = GoogleCalendarAuth.new
+
+    result = @cal.insert_acl_share_guest(@truck, info) if info[:email] != ""
+
+    respond_to do |format|
+      if result != nil
+        format.html { redirect_to @truck, notice: 'You are now following this truck.' }
+      else
+        format.html { redirect_to @truck, notice: 'You need to enter a valid Google email.' }
+      end
     end
   end
 
