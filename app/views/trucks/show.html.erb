@@ -7,27 +7,54 @@
 </div>
 
 	<!-- Button trigger modal -->
-	<button type="button" class="btn btn-primary" id="follow" data-toggle="modal" data-target="#exampleModalLong">
-	  Follow Calendar
-	</button>
-<div class="container">
-
-	<h1 class="truck-title"><%= @truck.truck_name.capitalize %></h1>
-
-
+<button type="button" class="btn btn-success" id="follow" data-toggle="modal" data-target="#exampleModalLong">
+  Follow Calendar
+</button>
 
 	<!-- Modal -->
-	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLongTitle">Follow <%= @truck.truck_name.titleize %> Calendar</h2>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <div class="modal-body">
+        <%= form_tag(follow_truck_guest_url(@truck), :method => :post) do |f|%>
+					<div class="form-group">
+						<%= label_tag :email, "Google Email" %>
+						<%= email_field_tag :email, "", class: "form-control" %>
+					</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= submit_tag 'Submit', class: 'btn btn-primary btn-block' %>
+      </div>
+      	<% end %>
+    </div>
+  </div>
+</div>
+
+<% if logged_in?(:admin) || (logged_in?(:truck) && current_user.id == @truck.user_id) %>
+		<!-- Button trigger modal -->
+	<button type="button" class="btn btn-info" id="follow" data-toggle="modal" data-target="#exampleModal">
+	  Follow Calendar with Edit
+	</button>
+
+		<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalTitle" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h2 class="modal-title" id="exampleModalLongTitle">Follow <%= @truck.truck_name.titleize %> Calendar</h2>
+	        <h2 class="modal-title" id="exampleModalTitle">Follow <%= @truck.truck_name.titleize %> Calendar With Edit</h2>
 	        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button> -->
 	      </div>
 	      <div class="modal-body">
-	        <%= form_tag(follow_truck_guest_url(@truck), :method => :post) do |f|%>
+	        <%= form_tag(follow_truck_url(@truck), :method => :post) do |f|%>
 						<div class="form-group">
 							<%= label_tag :email, "Google Email" %>
 							<%= email_field_tag :email, "", class: "form-control" %>
@@ -41,9 +68,11 @@
 	    </div>
 	  </div>
 	</div>
+<% end %>
 
+<div class="container">
 
-
+	<h1 class="truck-title"><%= @truck.truck_name.capitalize %></h1>
 
 	<p class="truck-info"><%= @truck.description %></p>
 
