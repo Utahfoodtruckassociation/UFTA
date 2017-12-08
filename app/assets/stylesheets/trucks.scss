@@ -15,7 +15,7 @@
 }
 
 html, body {
-  margin: 0;
+  margin: 40px 0 0 0;
   padding: 0;
 }
 body {
@@ -105,6 +105,8 @@ footer p {
 }
 
 .image-background {
+  position: relative;
+  top: -10px;
   height: 400px;
   background-position: center;
   background-repeat: no-repeat;
@@ -223,6 +225,7 @@ footer p {
   color: rgba(255, 255, 255, 0.7);
   background-color: transparent;
   display: inline-block;
+  margin: 0;
 }
 
 .navbar-styles {
@@ -261,6 +264,10 @@ footer p {
 #tabs {
   margin-bottom: 10px;
 }
+#follow {
+  float: right;
+  margin-right: 10px;
+}
 
 /* 
  * Show page css end
@@ -283,7 +290,7 @@ footer p {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    // z-index: 10; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -579,10 +586,16 @@ footer p {
   .logo {
     width: 50%;
   }
+  .image-background {
+    top: 7px;
+  }
 }
 @media (max-width: 30em) {
   .logo {
     width: 100%;
+  }
+  .image-background {
+    top: 5px;
   }
 }
 
