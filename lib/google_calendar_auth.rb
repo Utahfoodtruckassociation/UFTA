@@ -55,28 +55,27 @@ class GoogleCalendarAuth
   # This inserts ACL rule to share with users
   # -------------------------
 
-  def insert_acl_share_guest(truck, users)
+  def insert_acl_share_guest(truck, info)
+    # binding.pry
     rule = Google::Apis::CalendarV3::AclRule.new(
       scope: {
         type: 'user',
-        value: '#{users.email}'
+        value: info[:email]
       },
       role: 'reader'
     )
     result = authorize.insert_acl(truck.calendar_id, rule)
-    print result.id
   end
 
-  def insert_acl_share_truck(truck, users)
+  def insert_acl_share_truck(truck, info)
     rule = Google::Apis::CalendarV3::AclRule.new(
       scope: {
         type: 'user',
-        value: '#{users.email}'
+        value: info[:email]
       },
       role: 'writer'
     )
     result = authorize.insert_acl(truck.calendar_id, rule)
-    print result.id
   end
 
   def insert_acl(truck)
@@ -87,7 +86,6 @@ class GoogleCalendarAuth
       role: 'reader'
     )
     result = authorize.insert_acl(truck.calendar_id, rule)
-    print result.id
   end
 
   def new_calendar(truck)
