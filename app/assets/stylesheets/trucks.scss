@@ -239,7 +239,7 @@ footer p {
 }
 
 .logo {
-  width: 380px;
+  width: 120px;
   // position: fixed;
   // top: 5px;
   // left: 20px;
@@ -583,17 +583,17 @@ footer p {
   .login-link a {
     display: block;
   }
-  .logo {
-    width: 50%;
-  }
+  // .logo {
+  //   width: 50%;
+  // }
   .image-background {
     top: 7px;
   }
 }
 @media (max-width: 30em) {
-  .logo {
-    width: 100%;
-  }
+  // .logo {
+  //   width: 100%;
+  // }
   .image-background {
     top: 5px;
   }
