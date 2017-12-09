@@ -48,11 +48,13 @@
 
 
     <script type="text/javascript">
-      $('#scrollToBottom').bind("click", function () {
+      $('#scrollToBottom').on("click", function () {
         $('html, body').animate({ scrollTop: $('#tabs').offset().top -90 }, "slow");
+        return false;
       });
-      $('#scrollToTop').bind("click", function () {
+      $('#scrollToTop').on("click", function () {
         $('html, body').animate({ scrollTop: 0 }, "slow");
+        return false;
       });
     </script>
 
