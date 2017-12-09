@@ -60,6 +60,6 @@ module ApplicationHelper
   end
 
   def alert_generater msg
-    js add_gritter(msg, title: "UFTA", sticky: false)
+    js add_gritter(msg, title: "UFTA Notification", sticky: false)
   end
 end
