@@ -54,7 +54,7 @@
       <% end %>
 
       <div class="form-group">
-        <%= link_to_add_association 'Add Menu Item', f, :menus, class: 'btn btn-outline-success' %>
+        <%= link_to_add_association 'Add Menu Item', f, :menus, class: 'btn btn-outline-success', id: "add-menu" %>
       </div>
     </div>
   <% end %>
@@ -63,6 +63,16 @@
     <%= f.submit 'Save Truck', class: 'btn btn-primary btn-block' %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $("#add-menu").click(function(){
+    var uniqueId = Math.random().toString(36).substring(2) 
+             + (new Date()).getTime().toString(36);
+    $("label.file-label").last().attr("for", uniqueId);
+    $("input.food_img").last().attr("id", uniqueId);
+    $("img.preview").last().attr("id", `${uniqueId}1`);
+  });
+</script>
 
 <script type="text/javascript">
   function reply_click(clicked_id) {

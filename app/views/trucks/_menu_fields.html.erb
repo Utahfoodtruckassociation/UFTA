@@ -12,10 +12,10 @@
   </div>
 
   <div class="form-group imageUpload">
-    <%= f.label :food_image, for: "#{imageId = SecureRandom.uuid}", class: "btn btn-large btn-primary" %>
-    <%= f.file_field :food_image, id: "#{imageId}", class: "hide", onclick: "reply_click(this.id)" %>
+    <%= f.label :food_image, for: "#{imageId = SecureRandom.uuid}", class: "btn btn-large btn-primary file-label" %>
+    <%= f.file_field :food_image, id: "#{imageId}", class: "hide food_img", onclick: "reply_click(this.id)" %>
     <%#= f.hidden_field :food_image_cache %>
-    <img src="" id="<%= (imageId + "1") %>" alt="Preview Image" width="200px"/>
+    <img src="" id="<%= (imageId + "1") %>" class="preview" alt="Preview Image" width="200px"/>
   </div>
 
   <div class="form-group">
