@@ -295,8 +295,17 @@ h6, .h6, .nav a {
   background-size: cover;
 }
 
+.full-page-container {
+  width: 100%;
+  height: 100vh;
+}
+.HomeLogo {
+  margin-top: 20px;
+  width: 50%;
+}
+
 .logo {
-  width: 380px;
+  width: 120px;
   // position: fixed;
   // top: 5px;
   // left: 20px;
@@ -390,9 +399,9 @@ h6, .h6, .nav a {
     background-color: rgba(51, 51, 51, .85);
     border-radius: 5px;
   }
-  .logo {
-    width: 50%;
-  }
+  // .logo {
+  //   width: 50%;
+  // }
   .truck-list {
     margin-top: 20px;
   }
@@ -403,15 +412,19 @@ h6, .h6, .nav a {
   }
 }
 @media (max-width: 40em) {
-  .logo {
-    width: 100%;
-  }
+  // .logo {
+  //   width: 100%;
+  // }
   .main-container {
     margin-top: 0px;
   }
   .nav {
     z-index: 10;
     margin-bottom: 35px;
+  }
+  .HomeLogo {
+    margin-top: 20px;
+    width: 100%;
   }
 }
 @media (max-width: 550px) {
@@ -423,4 +436,39 @@ h6, .h6, .nav a {
   .small-iframe {
     display: none;
   }
+}
+
+
+.demo a {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  z-index: 2;
+  display: inline-block;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  color: #fff;
+  font : normal 400 20px/1 'Josefin Sans', sans-serif;
+  letter-spacing: .1em;
+  text-decoration: none;
+  transition: opacity .3s;
+}
+.demo a:hover {
+  opacity: .5;
+}
+#section01 a {
+  padding-top: 60px;
+}
+#section01 a span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  margin-left: -12px;
+  border-left: 7px solid #fff;
+  border-bottom: 7px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  box-sizing: border-box;
 }
