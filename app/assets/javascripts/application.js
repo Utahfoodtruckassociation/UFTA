@@ -13,15 +13,12 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
-//= require jquery-ui/core
-//= require jquery-ui/widget
-//= require jquery-ui/position
-//= require jquery-ui/effect.all
 //= require cocoon
 //= require gritter
 //= require turbolinks
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+//= require tether
 //= require bootstrap-sprockets
 
