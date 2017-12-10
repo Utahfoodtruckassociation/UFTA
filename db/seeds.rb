@@ -23,13 +23,14 @@
 
 # puts "2 Truck user created"
 
-User.find_or_create_by(
+mainAdminUser = User.new(
 	email: "admin@ufta.com",
 	password: "asdfasdf",
 	password_confirmation: "asdfasdf",
 	name: "Admin User",
 	roles: "admin"
 )
+mainAdminUser.save!
 
 puts "1 Admin user created"
 
