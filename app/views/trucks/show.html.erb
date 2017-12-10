@@ -24,8 +24,8 @@
       <div class="modal-body">
         <%= form_tag(follow_truck_guest_url(@truck), :method => :post) do |f|%>
 					<div class="form-group">
-						<%= label_tag :email, "Google Email" %>
-						<%= email_field_tag :email, "", class: "form-control" %>
+						<%= label_tag :email, "Google Email*" %>
+						<%= email_field_tag :email, "", class: "form-control", required: true %>
 					</div>
       </div>
       <div class="modal-footer">
@@ -56,8 +56,8 @@
 	      <div class="modal-body">
 	        <%= form_tag(follow_truck_url(@truck), :method => :post) do |f|%>
 						<div class="form-group">
-							<%= label_tag :email, "Google Email" %>
-							<%= email_field_tag :email, "", class: "form-control" %>
+							<%= label_tag :email, "Google Email*" %>
+							<%= email_field_tag :email, "", class: "form-control", required: true %>
 						</div>
 	      </div>
 	      <div class="modal-footer">

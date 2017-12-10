@@ -263,9 +263,11 @@ footer p {
 #tabs {
   margin-bottom: 10px;
 }
-#follow {
+button#follow {
+  display: inline-block;
   float: right;
   margin-right: 10px;
+  text-align: center;
 }
 
 /* 

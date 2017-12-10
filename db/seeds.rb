@@ -6,25 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.find_or_create_by(
-	email: "truck@gmail.com",
-	password: "asdfasdf",
-	password_confirmation: "asdfasdf",
-	name: "Truck User",
-	roles: "truck"
-)
-User.find_or_create_by(
-	email: "thiep@thiepseats.com",
-	password: "asdfasdf",
-	password_confirmation: "asdfasdf",
-	name: "Truck User 1",
-	roles: "truck"
-)
+# User.find_or_create_by(
+# 	email: "truck@gmail.com",
+# 	password: "asdfasdf",
+# 	password_confirmation: "asdfasdf",
+# 	name: "Truck User",
+# 	roles: "truck"
+# )
+# User.find_or_create_by(
+# 	email: "thiep@thiepseats.com",
+# 	password: "asdfasdf",
+# 	password_confirmation: "asdfasdf",
+# 	name: "Truck User 1",
+# 	roles: "truck"
+# )
 
-puts "2 Truck user created"
+# puts "2 Truck user created"
 
 User.find_or_create_by(
-	email: "Admin@gmail.com",
+	email: "admin@ufta.com",
 	password: "asdfasdf",
 	password_confirmation: "asdfasdf",
 	name: "Admin User",

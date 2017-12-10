@@ -57,18 +57,21 @@ gem 'warden', '~> 1.2.3'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'tzinfo-data'
-gem 'devise', '~> 4.3'
-gem 'tether-rails', '~> 1.4'
 gem 'bootstrap', '= 4.0.0.alpha6'
+gem 'tether-rails', '~> 1.4'
+
+gem 'devise', '~> 4.3'
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'omniauth-facebook', '~> 4.0'
+
 gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.10'
+gem 'gritter', '~> 1.2'
+
 gem 'carrierwave', '~> 1.1'
 gem 'carrierwave-aws', '~> 1.2'
 gem 'mini_magick', '~> 4.8'
-gem 'gritter', '~> 1.2'
 
 gem 'google-api-client', '~> 0.11', require: 'google/apis/calendar_v3'
 
