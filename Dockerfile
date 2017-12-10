@@ -12,7 +12,8 @@ RUN bundle install --binstubs \
 
 COPY . .
 
-RUN bin/rails assets:precompile 
+RUN bin/rails assets:clean \
+    && bin/rails assets:precompile 
 
 
 CMD puma -C config/puma.rb
