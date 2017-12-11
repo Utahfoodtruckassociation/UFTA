@@ -1,0 +1,1 @@
+$(window).scroll(function(){$(this).scrollTop()>50?$(".masthead").css("background-color","rgba(51, 51, 51, .85)"):$(".masthead").css("background-color","transparent")});
