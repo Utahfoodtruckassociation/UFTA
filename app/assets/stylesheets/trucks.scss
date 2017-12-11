@@ -263,11 +263,18 @@ footer p {
 #tabs {
   margin-bottom: 10px;
 }
-button#follow {
+.follow-container {
+  position: absolute;
+  right: .5em;
+  top: 30em;
+}
+a#follow {
   display: inline-block;
-  float: right;
-  margin-right: 10px;
+  // float: right;
+  // margin-right: 10px;
+  // margin-top: 10px;
   text-align: center;
+  z-index: 100;
 }
 
 /* 
@@ -589,6 +596,15 @@ button#follow {
   // }
   .image-background {
     top: 7px;
+  }
+}
+@media (max-width: 40em) {
+  .follow-container {
+    position: static;
+  }
+  a#follow {
+    margin-top: 10px;
+    display: block;
   }
 }
 @media (max-width: 30em) {

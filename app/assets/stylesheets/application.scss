@@ -410,6 +410,9 @@ h6, .h6, .nav a {
   .truck-list {
     padding: 0 15px;
   }
+  .login > .card {
+    width: 70%;
+  }
 }
 @media (max-width: 40em) {
   // .logo {
@@ -425,6 +428,11 @@ h6, .h6, .nav a {
   .HomeLogo {
     margin-top: 20px;
     width: 100%;
+  }
+}
+@media (max-width: 30em) {
+  .login > .card {
+    width: 90%;
   }
 }
 @media (max-width: 550px) {

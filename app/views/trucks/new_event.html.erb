@@ -19,12 +19,12 @@
 
 		<div class="form-group">
 			<%= label_tag :start_time, "Start Date and Time" %>
-			<%= datetime_field_tag :start_time, "", class: "form-control" %>
+			<%= datetime_field_tag :start_time, "", value: {strftime: "%m/%d/%Y, %I:%M %p"}, class: "form-control" %>
 		</div>
 
 		<div class="form-group">
 			<%= label_tag :end_time, "End Date and Time" %>
-			<%= datetime_field_tag :end_time, "", class: "form-control" %>
+			<%= datetime_field_tag :end_time, "", value: {strftime: "%m/%d/%Y, %I:%M %p"}, class: "form-control" %>
 		</div>
 
 		<h3>
