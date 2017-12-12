@@ -23,7 +23,7 @@
 
     <br>
 
-    <p><%= link_to 'New Truck', new_truck_path, class: "btn btn-primary" if logged_in?(:admin) %></p>
+    <p><%= link_to 'New Truck', new_truck_path, class: "btn btn-primary" if logged_in?(:admin) || logged_in?(:truck) %></p>
 
     <% if @trucks.blank? %>
       <h4 class="alert alert-danger" role="alert">There are no trucks containing the term <%= params[:search] %>.</h4>
@@ -35,7 +35,7 @@
           <div class="card thumb-img">
             <%= link_to (image_tag truck.thumb_image, width: '100%'), truck %>
             <p class="card-text">
-              <span><%= link_to truck.truck_name, truck %></span>
+              <span><%= link_to truck.truck_name.titleize, truck %></span>
               <br>
               <%= truck.description.truncate(28) %>
             </p>
