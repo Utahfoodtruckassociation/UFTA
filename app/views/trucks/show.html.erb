@@ -74,7 +74,7 @@
 
 <div class="container">
 
-	<h1 class="truck-title"><%= @truck.truck_name.capitalize %></h1>
+	<h1 class="truck-title"><%= @truck.truck_name.titleize %></h1>
 
 	<p class="truck-info"><%= @truck.description %></p>
 
@@ -104,10 +104,10 @@
 								<!-- <span><%#= info[2] %>:</span> -->
 								<p>
 									<strong><a href='<%= info[8] %>' target='_blank'><%= info[2] %></a></strong> (<%= info[3].to_date.strftime("%b. %d") %>, <%= info[3].strftime("%I:%M%p") %> - <%= info[4].to_date.strftime("%b. %d") %>, <%= info[4].strftime("%I:%M%p") %>):
-									<br> 
+									<br>
 									<a href='https://maps.google.com/maps?q=<%= info[5] %>&hl=en' target='_blank'><%= info[5] %></a>
 								</p>
-								
+
 							</div>
 							<div class="col-md-1 center">
 								<% msg = info[9] ? "Are you sure you want to delete all the recurring events?" : "Are you sure?" %>
@@ -171,7 +171,7 @@
 		</div>
 	</div> -->
 
-  
+
   <%= link_to 'Back', trucks_path %>
 	<% if logged_in?(:admin) || (logged_in?(:truck) && current_user.id == @truck.user_id) %>
 		|
@@ -192,7 +192,7 @@
 		var img = document.getElementById(clicked_id);
 		var modalImg = document.getElementById("img01");
 		var captionText = document.getElementById("caption");
-		
+
     modal.style.display = "block";
     modalImg.src = img.src;
     captionText.innerHTML = img.alt;
@@ -201,7 +201,7 @@
 	var span = document.getElementsByClassName("close")[0];
 
 	// When the user clicks on <span> (x), close the modal
-	span.onclick = function() { 
+	span.onclick = function() {
 	  modal.style.display = "none";
 	}
 	// When the user clicks anywhere outside of the modal, close it
@@ -252,4 +252,3 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 
 $(".fragment-3").on('click', initialize);
 </script>
-

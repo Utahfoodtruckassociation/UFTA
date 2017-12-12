@@ -11,6 +11,8 @@ class UserDashboard < Administrate::BaseDashboard
     truck: Field::HasMany,
     id: Field::Number,
     email: Field::String,
+    password: Field::String,
+    password_confirmation: Field::String,
     encrypted_password: Field::String,
     reset_password_token: Field::String,
     reset_password_sent_at: Field::DateTime,
@@ -72,6 +74,8 @@ class UserDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :email,
+    :password,
+    :password_confirmation,
     # :encrypted_password,
     # :reset_password_token,
     # :reset_password_sent_at,
