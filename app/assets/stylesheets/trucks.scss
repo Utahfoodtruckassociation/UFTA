@@ -73,6 +73,7 @@ h6, .h6, .nav a {
   margin-bottom: .75rem;
 }
 .thumb-img img {
+  // height: 450px;
   height: 300px;
   object-fit: cover;
 }
@@ -91,7 +92,7 @@ footer p {
   height: 50px; // This keeps the footer from covering the main content
 }
 
-/* 
+/*
 * Custom styles
 */
 
@@ -131,7 +132,7 @@ footer p {
   font-size: 1.3em;
 }
 
-/* 
+/*
  * NAVBAR STYLES START
  */
 
@@ -244,7 +245,7 @@ footer p {
   // left: 20px;
 }
 
-/* 
+/*
  * NAVBAR STYLES END
  */
 
@@ -256,7 +257,7 @@ footer p {
   display:none;
 }
 
-/* 
+/*
  * Show page css start
  */
 
@@ -277,12 +278,12 @@ a#follow {
   z-index: 100;
 }
 
-/* 
+/*
  * Show page css end
  */
 
 
-/* 
+/*
  * Big image view css start
  */
 
@@ -330,7 +331,7 @@ a#follow {
 }
 
 /* Add Animation */
-.modal-content, #caption {    
+.modal-content, #caption {
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
@@ -338,12 +339,12 @@ a#follow {
 }
 
 @-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)} 
+    from {-webkit-transform:scale(0)}
     to {-webkit-transform:scale(1)}
 }
 
 @keyframes zoom {
-    from {transform:scale(0)} 
+    from {transform:scale(0)}
     to {transform:scale(1)}
 }
 
@@ -372,14 +373,14 @@ a#follow {
   }
 }
 
-/* 
+/*
 * Big image view css end
 */
 
 .logotwo {
   width: 75px;
   position: relative;
-  
+
 }
 
 .logo2 {
@@ -387,8 +388,8 @@ a#follow {
   position: relative;
 }
 
-// .glyphicon { 
-//   margin-right:5px; 
+// .glyphicon {
+//   margin-right:5px;
 // }
 // .thumbnail {
 //     margin-bottom: 20px;
@@ -413,7 +414,7 @@ a#follow {
   background-size: cover;
 }
 
-/* 
+/*
 * search bar css start
 */
 
@@ -471,11 +472,11 @@ a#follow {
   opacity: 0.8;
 }
 
-/* 
+/*
 * search bar css end
 */
 
-/* 
+/*
 * Dropdown Filtering css start
 */
 
@@ -488,11 +489,11 @@ a#follow {
   margin-bottom: 5px;
 }
 
-/* 
+/*
 * Dropdown Filtering css end
 */
 
-/* 
+/*
 * imageUpload css start
 */
 
@@ -529,7 +530,7 @@ a#follow {
   border-radius: 4px;
 }
 
-/* 
+/*
 * imageUpload css end
 */
 
@@ -615,4 +616,3 @@ a#follow {
     top: 5px;
   }
 }
-
