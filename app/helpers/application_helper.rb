@@ -62,4 +62,14 @@ module ApplicationHelper
   def alert_generater msg
     js add_gritter(msg, title: "UFTA Notification", sticky: false), extend_gritter(:position => :top_left)
   end
+
+  def place_holder_img img, type
+    if img.model.main_image? || img.model.thumb_image?
+      img
+    elsif type == 'thumb'
+      'lunch-truck-it-favicon.jpg'
+    elsif type == 'main'
+      'healthy-recipes.jpg'
+    end
+  end
 end

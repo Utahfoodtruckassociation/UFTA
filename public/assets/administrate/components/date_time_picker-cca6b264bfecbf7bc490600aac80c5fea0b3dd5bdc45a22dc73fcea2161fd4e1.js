@@ -1,1 +1,0 @@
-$(function(){$(".datetimepicker").datetimepicker({debug:!1,format:"YYYY-MM-DD HH:mm:ss"})});
