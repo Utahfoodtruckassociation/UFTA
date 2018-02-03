@@ -1,6 +1,7 @@
 class TrucksController < ApplicationController
   before_action :set_truck, only: [:show, :edit, :update, :destroy, :new_event, :create_event, :delete_event, :follow_truck_guest, :follow_truck]
   layout "truck"
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :follow_truck, :new_event, :create_event, :delete_event]}, truck: :all, admin: :all
 
   # GET /trucks
   # GET /trucks.json

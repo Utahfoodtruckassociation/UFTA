@@ -10,6 +10,15 @@ module Admin
 
     def authenticate_admin
       # TODO Add authentication logic here.
+      if current_user.try(:roles) == nil
+        flash[:alert] = "You are not authorized to access this page."
+        redirect_to(root_path)
+      else
+        unless current_user.try(:roles).include?(:admin)
+          flash[:alert] = "You are not authorized to access this page."
+          redirect_to(root_path)
+        end
+      end
     end
 
     # Override this value to specify the number of elements to display at a time
