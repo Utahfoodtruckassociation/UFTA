@@ -64,12 +64,19 @@ module ApplicationHelper
   end
 
   def place_holder_img img, type
-    if img.model.main_image? || img.model.thumb_image?
-      img
-    elsif type == 'thumb'
-      'lunch-truck-it-favicon.jpg'
-    elsif type == 'main'
-      'healthy-recipes.jpg'
+    case type 
+      when 'main' 
+        if img.model.main_image?
+          img
+        else
+          'healthy-recipes.jpg'
+        end
+      when 'thumb' 
+        if img.model.thumb_image?
+          img
+        else
+          'lunch-truck-it-favicon.jpg'
+        end
     end
   end
 end
