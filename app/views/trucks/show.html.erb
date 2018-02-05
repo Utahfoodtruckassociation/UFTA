@@ -142,7 +142,7 @@
 		<div class="card">
 		<div class="row menu-item">
 			<div class="col-md-3">
-				<%= image_tag menu_item.food_image, width: '100%', class: "rounded float-right myImg", id: "myImg_#{menu_item.id}", alt: "#{menu_item.title.capitalize}", onclick: "reply_click(this.id)" %>
+				<%= image_tag place_holder_img(menu_item.food_image, 'menu'), width: '100%', class: "rounded float-right myImg", id: "myImg_#{menu_item.id}", alt: "#{menu_item.title.capitalize}", onclick: "reply_click(this.id)" %>
 				<%#= image_tag "http://barcodedc.com/wp-content/gallery/food/healthfitnessrevolution-com.jpg", width: '100%', class: "rounded float-right myImg", id: "1", alt: "#{@truck.truck_name.capitalize}" %>
 
 			</div>
