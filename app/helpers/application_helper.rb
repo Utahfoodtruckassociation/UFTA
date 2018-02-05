@@ -77,6 +77,14 @@ module ApplicationHelper
         else
           'lunch-truck-it-favicon.jpg'
         end
+      when 'menu' 
+        if img.model.food_image?
+          img
+        else
+          # 'eat-circle-orange.png'
+          # 'black-spoon-and-fork.jpg'
+          'fork-knife-plate.png'
+        end
     end
   end
 end
