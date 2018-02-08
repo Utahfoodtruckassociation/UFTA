@@ -87,4 +87,8 @@ module ApplicationHelper
         end
     end
   end
+
+  def copyright_generator
+    JohnsonCopyRight::Renderer.copyright 'Utah Food Truck Association', 'All rights reserved'
+  end
 end
