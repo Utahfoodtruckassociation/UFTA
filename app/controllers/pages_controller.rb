@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-  	@trucks = Truck.order('created_at ASC')
+  	@trucks = Truck.order("RANDOM()") # .order('created_at ASC')
 
   	@cal = GoogleCalendarAuth.new
 
