@@ -14,7 +14,7 @@ class TrucksController < ApplicationController
     elsif params[:dropdown]
       @trucks = Truck.dropdown(params[:dropdown]).order('created_at ASC')
     else
-      @trucks = Truck.order('created_at ASC')
+      @trucks = Truck.order("RANDOM()") # .order('created_at ASC')
     end
   end
 
