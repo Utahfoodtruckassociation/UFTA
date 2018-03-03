@@ -17,7 +17,7 @@ class PagesController < ApplicationController
                                     max_results: 20,
                                     single_events: true,
                                     order_by: 'startTime',
-                                    time_min: Time.now.iso8601)
+                                    time_min: DateTime.now.beginning_of_day.iso8601)
 
     	@events.items.each do |event|
     		if (Geocoder.coordinates(event.location)) != nil && (event.summary) != nil && event.location.downcase.match("ut") && (event.start.date_time).to_date == Date.today
