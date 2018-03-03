@@ -30,7 +30,7 @@ class PagesController < ApplicationController
           @glocation[count] << event.creator.email
           image = Truck.select("trucks.thumb_image, trucks.truck_name, trucks.id").joins(:user).where("users.email = '#{event.creator.email}'")
           image = Truck.select(:thumb_image, :truck_name, :id).where("trucks.calendar_id = '#{event.organizer.email}'") if image == []
-          image[0][:thumb_image] != nil ? @glocation[count] << image.first.thumb_image : @glocation[count] << view_context.image_path("lunch-truck-it-favicon.jpg")
+          image != [] && image[0][:thumb_image] != nil ? @glocation[count] << image.first.thumb_image : @glocation[count] << view_context.image_path("lunch-truck-it-favicon.jpg")
           @glocation[count] << image.first.truck_name if image != []
           @glocation[count] << image.first.id if image != []
           count += 1
