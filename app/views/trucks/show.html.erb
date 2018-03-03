@@ -103,7 +103,12 @@
 							<div class="col-md-11">
 								<!-- <span><%#= info[2] %>:</span> -->
 								<p>
-									<strong><a href='<%= info[8] %>' target='_blank'><%= info[2] %></a></strong> (<%= info[3].to_date.strftime("%b. %d") %>, <%= info[3].strftime("%I:%M%p") %> - <%= info[4].to_date.strftime("%b. %d") %>, <%= info[4].strftime("%I:%M%p") %>):
+									<strong><a href='<%= info[8] %>' target='_blank'><%= info[2] %></a></strong>
+									<% if info[3].to_date.strftime("%b. %d") == info[4].to_date.strftime("%b. %d") %>
+									 (<%= info[3].to_date.strftime("%b. %d") %>, <%= info[3].strftime("%I:%M%p") %> - <%= info[4].strftime("%I:%M%p") %>):
+									<% else %>
+										(<%= info[3].to_date.strftime("%b. %d") %>, <%= info[3].strftime("%I:%M%p") %> - <%= info[4].to_date.strftime("%b. %d") %>, <%= info[4].strftime("%I:%M%p") %>):
+									<% end %>
 									<br>
 									<a href='https://maps.google.com/maps?q=<%= info[5] %>&hl=en' target='_blank'><%= info[5] %></a>
 								</p>
