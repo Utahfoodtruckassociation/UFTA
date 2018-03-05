@@ -8,6 +8,6 @@ module DefaultPageContent
 
   def set_page_defaults
   	@page_title = "UFTA"
-  	@seo_keywords = "Food trucks"
+  	@seo_keywords = "Utah Food truck Association"
   end
 end

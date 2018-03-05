@@ -2,10 +2,12 @@
 <html>
   <head>
     <script src="https://use.fontawesome.com/e3cf88e5c9.js"></script>
-    <title>Ufta</title>
+    <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="keywords" content="<%= @seo_keywords %>" />
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

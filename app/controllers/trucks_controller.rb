@@ -21,6 +21,8 @@ class TrucksController < ApplicationController
   # GET /trucks/1
   # GET /trucks/1.json
   def show
+    @seo_keywords = @truck.description
+    
     @cal = GoogleCalendarAuth.new
 
     @glocation = []
