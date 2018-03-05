@@ -10,6 +10,15 @@ module Admin
     #     per(10)
     # end
 
+    def destroy
+      @truck = Truck.find(params[:id])
+
+      @cal = GoogleCalendarAuth.new
+      @cal.destroy_calendar(@truck)
+      
+      super
+    end
+
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)
     #   Truck.find_by!(slug: param)
