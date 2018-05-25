@@ -22,9 +22,11 @@
 					</div>
 			  </div>
 			  <div id="fragment-2">
-			  	<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;<% @calendars.items.each do |c| %>src=<%= c.id %>&amp;color=%<%= @color.sample %>&amp;<% end %>src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%232F6309&amp;ctz=America/Denver" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no" class="big-iframe"></iframe>
-
-			  	<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;mode=WEEK&amp;<% @calendars.items.each do |c| %>src=<%= c.id %>&amp;color=%<%= @color.sample %>&amp;<% end %>src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%232F6309&amp;ctz=America/Denver" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no" class="small-iframe"></iframe>
+			  	<div class="table-responsive">
+			  		<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;<% @calendars.items.each do |c| %>src=<%= c.id %>&amp;color=%<%= @color.sample %>&amp;<% end %>src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%232F6309&amp;ctz=America/Denver" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no" class="big-iframe"></iframe>
+			  		
+			  		<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;mode=WEEK&amp;<% @calendars.items.each do |c| %>src=<%= c.id %>&amp;color=%<%= @color.sample %>&amp;<% end %>src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%232F6309&amp;ctz=America/Denver" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no" class="small-iframe"></iframe>
+			  	</div>
 			  </div>
 			</div>
 
@@ -55,7 +57,8 @@
 	<%# @events.items.each do |e| %>
 		<p><%#= e.summary %> <%#= e.start.date_time.strftime("%I:%M%p") %> <%#= e.organizer.email %></p>
 	<%# end %>
-<%# end %></div> -->
+<%# end %></div>
+<%#= binding.pry %> -->
 
 <script type="text/javascript">
   handler = Gmaps.build('Google', { markers: { randomize: true, maxRandomDistance: 5, clusterer: { maxZoom: 9, gridSize: 40 }}});

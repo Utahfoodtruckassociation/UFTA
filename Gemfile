@@ -63,6 +63,7 @@ gem 'tether-rails', '~> 1.4'
 gem 'devise', '~> 4.3'
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'omniauth-facebook', '~> 4.0'
+gem 'petergate', '~> 1.7', '>= 1.7.5'
 
 gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
@@ -77,7 +78,6 @@ gem 'google-api-client', '~> 0.11', require: 'google/apis/calendar_v3'
 
 gem 'geocoder', '~> 1.4', '>= 1.4.4'
 gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
-gem 'petergate', '~> 1.7', '>= 1.7.5'
 
 gem 'administrate', '~> 0.8.1'
 gem 'administrate-field-carrierwave', '~> 0.2.0'

@@ -10,6 +10,33 @@ module Admin
     #     per(10)
     # end
 
+    def create
+      @truck = resource_class.new(resource_params)
+
+      @cal = GoogleCalendarAuth.new
+      resource = @cal.new_calendar(@truck) if (@truck.truck_name != "" && @truck.time_zone != "" && @truck.food_type != "" && @truck.description != "")
+
+      if resource.save
+        redirect_to(
+          [namespace, resource],
+          notice: translate_with_resource("create.success"),
+        )
+      else
+        render :new, locals: {
+          page: Administrate::Page::Form.new(dashboard, resource),
+        }
+      end
+    end
+
+    def update
+      @truck = Truck.find(params[:id])
+
+      @cal = GoogleCalendarAuth.new
+      @cal.update_calendar(@truck)
+
+      super
+    end
+
     def destroy
       @truck = Truck.find(params[:id])
 

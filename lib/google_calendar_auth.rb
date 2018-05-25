@@ -102,7 +102,10 @@ class GoogleCalendarAuth
     )
     result = authorize.insert_calendar(calendar)
     truck.calendar_id = result.id #save this id in to the database to connect a user to a calendar
+
     insert_acl(truck)
+
+    truck
   end
 
   def update_calendar(truck)
@@ -120,11 +123,11 @@ class GoogleCalendarAuth
   end
 
   # def destroy_calendar1
-  #   authorize.delete_calendar("vcqivt0v60lcf6ab3n3phe8324@group.calendar.google.com")
-  #   authorize.delete_calendar("l6hv50sle0hosmm4rm64h896co@group.calendar.google.com")
-  #   authorize.delete_calendar("u3hj1uu564dlqtgd6urm31ntro@group.calendar.google.com")
-  #   authorize.delete_calendar("t8e9lphd86smpialumv7h8c8kc@group.calendar.google.com")
-  #   authorize.delete_calendar("atab25cv7ua06kpvq2mafuu5e0@group.calendar.google.com")
+  #   authorize.delete_calendar("po6lanim4rm4npsqsnoghkc2i8@group.calendar.google.com")
+  #   authorize.delete_calendar("kvbd48snessmk2ne3sms0ro3gk@group.calendar.google.com")
+  #   authorize.delete_calendar("l8f6j9dr63kpjosk15q3jl3dh4@group.calendar.google.com")
+  #   authorize.delete_calendar("hrnodjsfopmgcak214km6ruuac@group.calendar.google.com")
+  #   authorize.delete_calendar("jt23brsh2at277bdvbirq5kga4@group.calendar.google.com")
   # end
 
   # def get_calendar
