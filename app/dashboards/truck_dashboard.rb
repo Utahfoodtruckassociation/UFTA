@@ -18,7 +18,8 @@ class TruckDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     calendar_id: Field::String,
-    time_zone: Field::Select.with_options(collection: ["America/Chicago", "America/Denver", "America/Los_Angeles", "America/New_York"]),
+    food_type: Field::Select.with_options(collection: ['Barbecue', 'Hamburgers/Hot Dogs', 'Sandwiches', 'Drinks/Coffee', 'Desserts', 'Hispanic', 'Seafood/Sushi', 'Mediterranean', 'Breakfast', 'Asian', 'Pizza', 'Ice Cream', 'Shaved Ice/Italian Ice', 'Indian', 'Hawaiian']),
+    time_zone: Field::Select.with_options(collection: ["America/Denver", "America/Chicago", "America/Los_Angeles", "America/New_York"]),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -29,6 +30,7 @@ class TruckDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :truck_name,
+    :food_type,
     :menus,
     :user,
   ].freeze
@@ -44,6 +46,7 @@ class TruckDashboard < Administrate::BaseDashboard
     :created_at,
     :updated_at,
     :calendar_id,
+    :food_type,
     :time_zone,
     :user,
     :menus,
@@ -57,6 +60,7 @@ class TruckDashboard < Administrate::BaseDashboard
     :description,
     :main_image,
     :thumb_image,
+    :food_type,
     :time_zone,
     :menus,
     :user,

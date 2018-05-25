@@ -124,9 +124,11 @@
 		  </div>
 
 		  <div id="fragment-2">
-		  	<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=<%= @truck.calendar_id %>&amp;src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%232F6309&amp;ctz=<%= @truck.time_zone %>" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no" class="big-iframe"></iframe>
-
-		  	<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;mode=WEEK&amp;src=<%= @truck.calendar_id %>&amp;&amp;src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%232F6309&amp;ctz=<%= @truck.time_zone %>" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no" class="small-iframe"></iframe>
+		  	<div class="table-responsive">
+		  		<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=<%= @truck.calendar_id %>&amp;src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%232F6309&amp;ctz=<%= @truck.time_zone %>" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no" class="big-iframe"></iframe>
+		  		
+		  		<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;mode=WEEK&amp;src=<%= @truck.calendar_id %>&amp;&amp;src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%232F6309&amp;ctz=<%= @truck.time_zone %>" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no" class="small-iframe"></iframe>
+		  	</div>
 		  </div>
 
 		  <div id="fragment-3">
