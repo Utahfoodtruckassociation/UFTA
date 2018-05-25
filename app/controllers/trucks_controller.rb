@@ -70,7 +70,7 @@ class TrucksController < ApplicationController
       <center>
       <h6>#{loc[6]}</h6>
       <a href='#{loc[8]}' target='_blank'>#{loc[2]}</a>
-      <p>#{loc[3].to_date.strftime("%b. %d")}, #{loc[3].strftime("%I:%M%p")} - #{loc[4].to_date.strftime("%b. %d")}, #{loc[4].strftime("%I:%M%p")}</p>
+      <p>#{loc[3].to_date.strftime("%b. %d")}, #{loc[3].strftime("%I:%M%p")} - #{loc[4].to_date.strftime("%b. %d")}, #{loc[4].strftime("%I:%M%p")} #{Time.parse((loc[3].to_datetime).to_s).strftime("%Z")}</p>
       <a href='https://maps.google.com/maps?q=#{loc[5]}&hl=en' target='_blank'>#{loc[5]}</a>
       </center>"
     end
