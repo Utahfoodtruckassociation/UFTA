@@ -240,6 +240,9 @@ class TrucksController < ApplicationController
                                     :user_id,
                                     :calendar_id,
                                     :time_zone,
+                                    :facebook,
+                                    :instagram,
+                                    :twitter,
                                     menus_attributes: [:id, :title, :description, :food_image, :price, :_destroy])
     end
 end
