@@ -6,6 +6,20 @@
   <h1 id="caption"></h1>
 </div>
 
+<div class="social-media">
+	<div class="wrp">
+		<% if @truck.twitter != "" && @truck.twitter != nil %>
+		<a class="icon icon-twitter" href="<%= @truck.twitter %>" target="_blank"><i class="fa fa-twitter"></i></a>
+		<% end %>
+		<% if @truck.instagram != "" && @truck.instagram != nil %>
+		<a class="icon icon-instagram" href="<%= @truck.instagram %>" target="_blank"><i class="fa fa-instagram"></i></a>
+		<% end %>
+		<% if @truck.facebook != "" && @truck.facebook != nil %>
+		<a class="icon icon-facebook" href="<%= @truck.facebook %>" target="_blank"><i class="fa fa-facebook"></i></a>
+		<% end %>
+	</div>
+</div>
+
 <div class="follow-container">
 	<% if logged_in?(:admin) || (logged_in?(:truck) && current_user.id == @truck.user_id) %>
 			<!-- Button trigger modal -->
