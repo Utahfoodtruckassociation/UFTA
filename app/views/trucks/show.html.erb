@@ -17,6 +17,9 @@
 		<% if @truck.facebook != "" && @truck.facebook != nil %>
 		<a class="icon icon-facebook" href="<%= @truck.facebook %>" target="_blank"><i class="fa fa-facebook"></i></a>
 		<% end %>
+		<% if @truck.website != "" && @truck.website != nil %>
+		<a class="icon icon-website" href="<%= @truck.website %>" target="_blank"><i class="fa fa-globe"></i></a>
+		<% end %>
 	</div>
 </div>
 
