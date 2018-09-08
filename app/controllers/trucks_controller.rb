@@ -243,6 +243,7 @@ class TrucksController < ApplicationController
                                     :facebook,
                                     :instagram,
                                     :twitter,
+                                    :website,
                                     menus_attributes: [:id, :title, :description, :food_image, :price, :_destroy])
     end
 end

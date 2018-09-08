@@ -116,6 +116,7 @@ footer p {
   background-size: cover;
   // object-fit: scale-down;
   z-index: -100;
+  border-bottom: 1px solid black;
 }
 .menu-money {
   padding: 0 20px;
@@ -367,6 +368,12 @@ a#follow {
   }
   .icon-instagram::after {
     background: #3f729b;
+  }
+  .icon-website {
+    color: #254072;
+  }
+  .icon-website::after {
+    background: #254072;
   }
   @-moz-keyframes bubble {
     100% {
